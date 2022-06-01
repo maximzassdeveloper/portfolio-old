@@ -64,7 +64,7 @@ export function init(selector) {
     return window.innerWidth <= 600 ? 500 : 800
   }
 
-  const $container = document.querySelector('.first')
+  const $container = document.querySelector('#first')
   const sizes = {
     width: $container.offsetWidth,
     height: getCanvHeight()

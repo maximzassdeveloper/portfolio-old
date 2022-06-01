@@ -1,0 +1,43 @@
+.first {
+  padding: 90px 0 70px;
+  margin-bottom: 500px;
+  z-index: 1;
+  position: relative;
+}
+
+.webgl {
+  position: absolute;
+  left: 0;
+  top: 180px;
+  z-index: -1;
+}
+
+.title {
+  font-size: 54px;
+  line-height: 1.25em;
+  width: max-content;
+  margin: 0 auto 70px;
+  text-align: left;
+  &::before {
+    content: none;
+  }
+  span {
+    color: $accent;
+  }
+  .line {
+    line-height: inherit;
+    &:nth-child(3) {
+      margin-left: 60px;
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  bottom: -150px;
+  right: 8%;
+  img {
+    display: block;
+    transform: rotate(45deg);
+  }
+}

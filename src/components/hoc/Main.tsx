@@ -1,8 +1,6 @@
-import { FC, PropsWithChildren, useEffect, useRef } from 'react'
 import Head from 'next/head'
-import classNames from 'classnames'
-import { Header } from '@/components'
-import s from './main.module.scss'
+import { FC, PropsWithChildren } from 'react'
+import { Header, Footer } from '@/components'
 
 interface MainProps {
   title?: string
@@ -20,9 +18,11 @@ export const Main: FC<PropsWithChildren<MainProps>> = ({ children, title, classN
 
       <Header />
 
-      <main className={classNames(s.main, className)}>
+      <main>
         {children}
       </main>
+
+      <Footer />
     </>
   )
 }

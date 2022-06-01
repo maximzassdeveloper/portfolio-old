@@ -1,0 +1,25 @@
+.about {
+  padding: 150px 0 100px;
+}
+
+.content {
+  height: 1200px;
+  position: relative;
+  & > * {
+    position: absolute;
+  }
+}
+
+.text {
+  font-size: 30px;
+  max-width: 530px;
+  z-index: 1;
+}
+
+.text1 { right: 12%; top: 140px; }
+.text2 { left: 5%; top: 650px; }
+.text3 { left: 5%; top: 900px; }
+
+.image1 { left: 2%; top: 0px; max-width: 430px; }
+.image2 { right: 0px; top: 600px; max-width: 500px; }
+

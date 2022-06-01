@@ -1,0 +1,11 @@
+.split-text {
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  perspective: 8000px;
+  perspective-origin: -100% 50%;
+  transform-origin: left bottom;
+  & > div {
+    transform: rotateX(-80deg) translateY(50%);
+    opacity: 0;
+  }
+}

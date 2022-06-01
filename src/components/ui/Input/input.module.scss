@@ -1,0 +1,36 @@
+.input {
+  position: relative;
+  margin-bottom: 50px;
+  z-index: 1;
+  &.filled .label, 
+  input:focus ~ .label, 
+  textarea:focus ~ .label  {
+    top: -22px;
+    font-size: 16px;
+  }
+  input, textarea {
+    font-size: 18px;
+    color: #fff;
+    padding: 8px;
+  }
+  &:after {
+    content: '';
+    display: block;
+    background: #fff;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;  
+  }
+}
+
+.label {
+  position: absolute;
+  font-size: 18px;
+  left: 7px;
+  top: 8px;
+  color: $grey;
+  transition: .2s;
+  z-index: -1;
+}

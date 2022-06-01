@@ -1,24 +1,51 @@
-import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
+import { CustomLink, NavList } from '@/components'
+import { Container } from '@/components/hoc'
+import { Button } from '@/components/ui'
+import { useAppContext } from '@/context/AppContext'
 import s from './header.module.scss'
 
 export const Header: FC = () => {
+
+  const { locoScroll } = useAppContext()
+  const header = useRef<HTMLDivElement>(null)
+  const oldY = useRef(0)
+
+  const onScroll = (e: any) => {
+    if (!header.current) return
+    if (e.scroll.y > header.current.offsetHeight && e.scroll.y > oldY.current) {
+      header.current.classList.add(s.hidden)
+    } else {
+      header.current.classList.remove(s.hidden)
+    }
+    oldY.current = e.scroll.y
+  }
+
+  useEffect(() => {
+    locoScroll?.on('scroll', onScroll)
+
+    return () => {
+      locoScroll?.off('scroll', onScroll)
+    }
+  }, [locoScroll])
+
   return (
-    <header className={s.header}>
-      <div className="container">
+    <header className={s.header} ref={header}>
+      <Container className={s.container}>
+
         <div className={s.logo}>
-          <Link href='/'>М. Засс</Link>
+          <CustomLink className={s.link} route='/'>М. Засс</CustomLink>
         </div>
+
         <nav className={s.menu}>
-          <ul>
-            <li><span className="link" data-hash="/#about">Обо мне</span></li>
-            <li><span className="link" data-hash="/#works">Проекты</span></li>
-            <li><span className="link" data-hash="/#contact">Контакты</span></li>
-          </ul>
+          <NavList linkClassName={s.link} />
         </nav>
-        {/* <a class="button header-button small" href="/" data-hash="#contact">Связаться</a> */}
+
+        <Button className={s.button} size='small'>
+          <CustomLink hash='#contact' notHoverCursorAnimation>Связаться</CustomLink>
+        </Button>
         {/* <span class="header-burger"></span> */}
-      </div>
+      </Container>
     </header>
   )
 }
