@@ -41,6 +41,7 @@ export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({
     <a
       ref={link}
       target={notSpaLink ? '_blank' : undefined}
+      rel={notSpaLink ? 'noopener' : undefined}
       href={notSpaLink ? notSpaLink : route}
       className={classNames(s.link, className)} 
       onClick={handleClick}

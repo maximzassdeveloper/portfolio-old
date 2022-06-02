@@ -24,6 +24,7 @@ export const Input = forwardRef<Elem, InputProps>(( props, ref ) => {
 
   const { 
     className, 
+    name,
     value, 
     label, 
     disabled, 
@@ -67,6 +68,7 @@ export const Input = forwardRef<Elem, InputProps>(( props, ref ) => {
       {label && <label className={s.label}>{label}</label>} 
       <Tag 
         ref={composeRef(inputRef, ref)}
+        name={name}
         type={type}
         autoComplete={autoComplete}
         value={value}
