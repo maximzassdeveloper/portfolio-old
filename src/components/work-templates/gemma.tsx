@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { imgPath } from '@/utils/helper'
 import './work-templates.module.scss'
 
-const RampTemplate: FC = () => {
+const GemmaTemplate: FC = () => {
   return <>
     <div className="image center" data-scroll data-scroll-speed="2">
       <Image src={imgPath('ramp/ramp-single.gif')} width={600} height={400} />
@@ -23,4 +23,4 @@ const RampTemplate: FC = () => {
   </>
 }
 
-export default RampTemplate
+export default GemmaTemplate

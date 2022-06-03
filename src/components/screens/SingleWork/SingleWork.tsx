@@ -1,10 +1,10 @@
 import { FC, } from 'react'
-import dynamic from 'next/dynamic'
 import { Container } from '@/components/hoc'
 import { Title, CustomLink } from '@/components/ui'
 import { imgPath } from '@/utils/helper'
 import { IWork } from '@/types'
 import s from './single-work.module.scss'
+import WorkTemplate from '@/components/work-templates'
 
 
 interface SingleWorkProps {
@@ -14,8 +14,8 @@ interface SingleWorkProps {
 export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
 
   const renderTemplate = () => {
-    const Template = dynamic(() => import(`@/components/work-templates/${work.slug}`))
-    return <Template />
+    const Content = WorkTemplate[work.slug]
+    return Content ? <Content /> : null
   }
 
   return (
