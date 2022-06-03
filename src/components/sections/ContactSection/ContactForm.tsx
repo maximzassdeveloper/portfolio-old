@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import { Button, Input, Title } from '@/components/ui'
+import { Button, Input, Title, CustomLink } from '@/components/ui'
 import s from './contact.module.scss'
-import { CustomLink } from '@/components/CustomLink/CustomLink'
 
 interface ContactFormProps {
   

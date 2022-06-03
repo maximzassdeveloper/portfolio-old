@@ -2,7 +2,7 @@ import { FC, MouseEvent, useRef } from 'react'
 import Image from 'next/image'
 import classNames from 'classnames'
 import { IMG_URL } from '@/config'
-import { CustomLink } from '@/components/CustomLink/CustomLink'
+import { CustomLink } from '@/components/ui'
 import { dragOnHover } from '@/utils/dragOnHover'
 import s from './arrow.module.scss'
 

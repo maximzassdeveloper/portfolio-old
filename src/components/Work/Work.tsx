@@ -1,10 +1,9 @@
 import { FC, useRef } from 'react'
 import Image from 'next/image'
 import { IWork } from '@/types'
-import { CustomLink } from '@/components'
-import { Title } from '@/components/ui'
+import { Title, CustomLink } from '@/components/ui'
 import { useCursorHover } from '@/hooks'
-import { IMG_URL } from '@/config'
+import { imgPath } from '@/utils/helper'
 import s from './work.module.scss'
 
 interface WorkProps {
@@ -26,7 +25,7 @@ export const Work: FC<WorkProps> = ({ work }) => {
   function onMouseEnter () {
     if (!cursorRef.current || !bgRef.current) return
     cursorRef.current.style.background = work.color
-    bgRef.current.style.backgroundImage = `url('${IMG_URL}/${work.preview}')`
+    bgRef.current.style.backgroundImage = `url('${imgPath(work.preview)}')`
     bgRef.current.classList.add(s.workBgActive)
   }
 
@@ -48,7 +47,7 @@ export const Work: FC<WorkProps> = ({ work }) => {
           <div className={s.image}>
             <div data-scroll data-scroll-speed="0.5" data-scroll-offset="0%, 0%">
               <Image 
-                src={`${IMG_URL}/${work.preview}`} 
+                src={imgPath(work.preview)} 
                 data-scroll
                 data-scroll-speed="0.5"
                 data-scroll-offset="0%, 0%"

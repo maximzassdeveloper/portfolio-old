@@ -1,9 +1,0 @@
-.link {
-  width: max-content;
-  line-height: 1.5em;
-  transition: .2s;
-}
-
-.hoverLink {
-  composes: hoverLink from '../CustomCursor/cursor.module.scss';
-}

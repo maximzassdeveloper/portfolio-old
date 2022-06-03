@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { CustomLink } from '@/components'
+import { CustomLink } from '@/components/ui'
 import { links } from '@/db'
 
 interface SocialListProps {

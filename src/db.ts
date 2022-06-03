@@ -53,6 +53,8 @@ export const works: IWork[] = [
       "Дизайн",
       "Разработка"
     ],
-    link: "https://superstartmlm.ru"
+    links: {
+      'Смотреть сайт': "https://superstartmlm.ru"
+    }
   }
 ]

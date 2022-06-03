@@ -9,7 +9,7 @@ export interface IWork {
   color: string
   role?: IRole[]
   stack?: string[]
-  link?: string
+  links?: ILinks
 }
 
 export interface ILinks {

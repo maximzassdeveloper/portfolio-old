@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef } from 'react'
-import { CustomLink, NavList } from '@/components'
+import { NavList } from '@/components'
 import { Container } from '@/components/hoc'
-import { Button } from '@/components/ui'
+import { Button, CustomLink } from '@/components/ui'
 import { useAppContext } from '@/context/AppContext'
 import s from './header.module.scss'
 

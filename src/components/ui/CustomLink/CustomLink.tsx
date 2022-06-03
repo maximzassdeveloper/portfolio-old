@@ -33,7 +33,7 @@ export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({
     } 
 
     if (hash && locoScroll) {
-      locoScroll.scrollTo(hash)
+      locoScroll.scrollTo(hash === 'top' ? 0 : hash)
     }
   }
 

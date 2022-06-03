@@ -14,7 +14,7 @@ export const ContactSection: FC = () => {
 
         <SocialList linkClassName={s.link} />
 
-        <Arrow className={s.arrow} dataScroll />
+        <Arrow className={s.arrow} hash='top' dataScroll />
       </div> 
 
       <ContactForm />

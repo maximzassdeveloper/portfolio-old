@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { CustomLink, NavList, SocialList } from '@/components'
+import { NavList, SocialList } from '@/components'
 import { Container } from '@/components/hoc'
-import { Button } from '@/components/ui'
+import { Button, CustomLink } from '@/components/ui'
 import s from './footer.module.scss'
 
 export const Footer: FC = () => {
