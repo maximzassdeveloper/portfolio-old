@@ -21,7 +21,10 @@ export const works: IWork[] = [
     stack: [
       "TypeScript",
       "React"
-    ]
+    ],
+    links: {
+      'Смотреть сайт': 'https://video-ramp.herokuapp.com/'
+    }
   },
   {
     id: 2,

@@ -4,8 +4,8 @@ import classNames from 'classnames'
 
 import { gsap } from 'gsap'
 import { CustomEase } from 'gsap/dist/CustomEase'
-
 import { useAnimation } from '@/animations'
+
 import s from './title.module.scss'
 
 interface TitleProps {
@@ -29,7 +29,10 @@ export const Title: FC<PropsWithChildren<TitleProps>> = ({
   function titleAnimation () {
     if (!ref.current) return
 
-    gsap.to(ref.current.querySelectorAll('.line'), {
+    const lines = ref.current.querySelectorAll('.line')
+    if (!lines?.length) return
+
+    gsap.to(lines, {
       scrollTrigger: {
         trigger: ref.current,
         start: 'top 60%'

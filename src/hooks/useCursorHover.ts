@@ -6,7 +6,6 @@ interface IOptions {
   cursorClass?: string
   onMouseEnter?: (e: MouseEvent) => void
   onMouseLeave?: (e: MouseEvent) => void
-  onMouseDown?: (e: MouseEvent) => void
 }
 
 export const useCursorHover = (
@@ -30,24 +29,15 @@ export const useCursorHover = (
     options.onMouseLeave?.(e)
   }
 
-  const onMouseDown = (e: MouseEvent) => {
-    if (options.cursorClass && options.onMouseDown) {
-      cursorRef.current?.classList.remove(cursorStyles[options.cursorClass])
-    }
-    options.onMouseDown?.(e)
-  }
-
   useEffect(() => {
     if (!cursorRef.current || !target?.current) return
 
     target.current.addEventListener('mouseenter', onMouseEnter)
     target.current.addEventListener('mouseleave', onMouseLeave)
-    target.current.addEventListener('mousedown', onMouseDown)
 
     return () => {
       target.current?.removeEventListener('mouseenter', onMouseEnter)
       target.current?.removeEventListener('mouseleave', onMouseLeave)
-      target.current?.removeEventListener('mousedown', onMouseDown)
     }
   }, [])
 

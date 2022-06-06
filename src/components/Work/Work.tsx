@@ -18,8 +18,7 @@ export const Work: FC<WorkProps> = ({ work }) => {
   const { cursorRef } = useCursorHover(workRef, {
     cursorClass: 'hoverWork',
     onMouseEnter,
-    onMouseLeave,
-    onMouseDown: onMouseLeave
+    onMouseLeave
   })
 
   function onMouseEnter () {

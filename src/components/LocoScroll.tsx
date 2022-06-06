@@ -47,6 +47,7 @@ const LocoScroll = () => {
 
     const onLocoScroll = () => ScrollTrigger.update()
     const locoUpdate = () => locoScroll && locoScroll.update()
+
     
     locoScroll?.on('scroll', onLocoScroll)
 

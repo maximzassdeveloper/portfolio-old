@@ -36,6 +36,8 @@
   position: absolute;
   bottom: -150px;
   right: 8%;
+  transform: scale(.3);
+  opacity: 0;
   img {
     display: block;
     transform: rotate(45deg);

@@ -22,8 +22,8 @@
 }
 
 .logo {
-  // opacity: 0;
-  // transform: translateY(10px);
+  opacity: 0;
+  transform: translateY(10px);
   .link {
     color: $grey;
     &:hover {
@@ -34,8 +34,8 @@
 
 .button {
   margin-left: auto;
-  // transform: translateY(10px);
-  // opacity: 0;
+  transform: translateY(10px);
+  opacity: 0;
 }
 
 .menu {
@@ -49,9 +49,8 @@
     margin-right: 60px;
     overflow: hidden;
     .link {
-      // margin-top: 2px;
       display: block;
-      // transform: translateY(100%);
+      transform: translateY(100%);
       transition: .2s;
       color: $grey;
       font-size: 16px;

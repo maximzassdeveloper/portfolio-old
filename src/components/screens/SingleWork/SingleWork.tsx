@@ -1,7 +1,7 @@
 import { FC, } from 'react'
 import { Container } from '@/components/hoc'
 import { Title, CustomLink } from '@/components/ui'
-import { imgPath } from '@/utils/helper'
+import { imgPath, isEmpty } from '@/utils/helper'
 import { IWork } from '@/types'
 import s from './single-work.module.scss'
 import WorkTemplate from '@/components/work-templates'
@@ -59,9 +59,8 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
 
           <p className={s.desc}>{work.desc}</p>
 
-          {work.links?.length && (
+          {work.links && !isEmpty(work.links) && (
             <div className={s.links}>
-              <Title level='h3'>Технологии</Title>
               {Object.entries(work.links).map(([name, url]) => 
                 <CustomLink key={name+url} notSpaLink={url}>{name}</CustomLink>
               )}

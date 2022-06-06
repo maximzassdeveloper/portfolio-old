@@ -1,9 +1,12 @@
-import { FC, MouseEvent, useRef } from 'react'
+import { forwardRef, MouseEvent, useRef } from 'react'
 import Image from 'next/image'
 import classNames from 'classnames'
-import { IMG_URL } from '@/config'
 import { CustomLink } from '@/components/ui'
+
 import { dragOnHover } from '@/utils/dragOnHover'
+import { composeRef } from '@/utils/composeRef'
+import { imgPath } from '@/utils/helper'
+
 import s from './arrow.module.scss'
 
 interface ArrowProps {
@@ -13,7 +16,9 @@ interface ArrowProps {
   className?: string
 }
 
-export const Arrow: FC<ArrowProps> = ({ className, dataScroll, hash, dataScrollSpeed }) => {
+export const Arrow = forwardRef<HTMLDivElement, ArrowProps>((props, ref) => {
+
+  const { className, dataScroll, hash, dataScrollSpeed } = props
 
   const arrow = useRef<HTMLDivElement>(null)
 
@@ -25,14 +30,14 @@ export const Arrow: FC<ArrowProps> = ({ className, dataScroll, hash, dataScrollS
   return (
     <CustomLink hash={hash} >
       <div 
-        ref={arrow}
+        ref={composeRef(arrow, ref)}
         className={classNames(s.arrow, className)}
         data-scroll={dataScroll}
         data-scroll-speed={dataScrollSpeed}
         onMouseMove={mouseMoveHandler}
       >        
-        <Image src={IMG_URL + '/arrow-icon.svg'} alt='Arrow' width={70} height={70} />
+        <Image src={imgPath('/arrow-icon.svg')} alt='Arrow' width={66} height={60} />
       </div>
     </CustomLink>
   )
-}
+})
