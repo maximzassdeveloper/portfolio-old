@@ -8,7 +8,6 @@ export const useAnimation = (animation: () => void) => {
 
   useEffect(() => {
     if (!!locoScroll) {
-      console.log('locoscroll reload')
       animation()
     }
   }, [locoScroll])

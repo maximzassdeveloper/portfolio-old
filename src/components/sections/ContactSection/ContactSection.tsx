@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { Section } from '@/components/hoc'
-import { Arrow, Title } from '@/components/ui'
-import { SocialList } from '@/components'
+import { Arrow, Title, SocialList } from '@/components/ui'
 import { ContactForm } from './ContactForm'
 import s from './contact.module.scss'
 

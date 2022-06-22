@@ -80,3 +80,47 @@
     z-index: -1;
   }
 }
+
+@media screen and (max-width: 992px) {
+  .image {
+    padding: 0 20px;
+    height: 400px;
+    div {
+      height: 470px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image img {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    padding-left: 5%;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .image {
+    height: 350px;
+    div {
+      height: 350px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .title {
+    font-size: 24px;
+  }
+  .image {
+    padding: 0 2%;
+    height: 230px;
+    div {
+      height: 230px;
+    }
+  }
+}

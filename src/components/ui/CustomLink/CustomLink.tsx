@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, MouseEvent as ReactMouseEvent, useRef } from 'react'
+import { FC, PropsWithChildren, MouseEvent as ReactMouseEvent, useRef, MouseEventHandler } from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { useAppContext } from '@/context/AppContext'
@@ -10,11 +10,12 @@ interface CustomLinkProps {
   hash?: string
   notHoverCursorAnimation?: boolean
   notSpaLink?: string
+  onClick?: MouseEventHandler<HTMLAnchorElement>
   className?: string
 }
 
 export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({ 
-  children, route = '/', hash, notSpaLink, notHoverCursorAnimation, className 
+  children, route = '/', hash, notSpaLink, notHoverCursorAnimation, className, onClick
 }) => {
 
   const { locoScroll, hash: hashRef } = useAppContext()
@@ -35,6 +36,8 @@ export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({
     if (hash && locoScroll) {
       locoScroll.scrollTo(hash === 'top' ? 0 : hash)
     }
+
+    onClick?.(e)
   }
 
   return (

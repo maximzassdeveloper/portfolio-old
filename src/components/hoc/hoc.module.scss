@@ -4,3 +4,9 @@
   max-width: 1200px;
   margin: auto;
 }
+
+@media screen and (max-width: 1300px) {
+  .container {
+    max-width: 90%;
+  }
+}

@@ -73,3 +73,9 @@
     width: 3px;
   }
 }
+
+@media screen and (max-width: 992px) {
+  .cursor {
+    display: none;
+  }
+}

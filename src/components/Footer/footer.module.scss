@@ -42,3 +42,29 @@
     margin-bottom: 10px;
   }
 }
+
+
+@media screen and (max-width: 992px) {
+  .col {
+    flex-direction: column;
+    & > * {
+      margin-right: 0;
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    flex-direction: column;
+  }
+  .col {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, forwardRef, ReactNode, useEffect, useRef, MouseEvent } from 'react'
+import { ButtonHTMLAttributes, forwardRef, ReactNode, useRef, MouseEvent } from 'react'
 import classNames from 'classnames'
 import { useCursorHover } from '@/hooks'
 import { composeRef } from '@/utils/composeRef'

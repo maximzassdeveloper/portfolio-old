@@ -1,7 +1,6 @@
 import { FC } from 'react'
-import { NavList, SocialList } from '@/components'
 import { Container } from '@/components/hoc'
-import { Button, CustomLink } from '@/components/ui'
+import { Button, CustomLink, NavList, SocialList } from '@/components/ui'
 import s from './footer.module.scss'
 
 export const Footer: FC = () => {
@@ -10,7 +9,7 @@ export const Footer: FC = () => {
       <Container className={s.container}>
 
         <div className={s.col}>
-          <p className={s.copyright}>2022© Максим Засс</p>
+          <p className={s.copyright}>{(new Date()).getFullYear()}© Максим Засс</p>
 
           <NavList className={s.menu} linkClassName={s.link} />
         </div>

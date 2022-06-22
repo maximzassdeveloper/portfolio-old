@@ -92,59 +92,71 @@ img {
   z-index: 999;
 }
 
-.grain {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+// .grain {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+// }
 
-.preloader {
-  position: fixed;
-  z-index: 999;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  top: 0;
-  background: $bg;
-  transform-origin: top;
-  p {
-    font-size: 40px;
-    color: #fff;
-    z-index: 2;
-  }
-  &-circle {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    background: conic-gradient(from 226.07deg at 50% 50%, $accent 0deg, rgba($accent, 0) 360deg);
-    z-index: 1;
-    animation: spin 6s ease-in-out infinite;
-    &:after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%); 
-      width: 110%;
-      height: 110%;
-      border-radius: 50%;
-      background: radial-gradient(40% 40% at 50% 50%, rgba($bg, 0) 0%, $bg 100%)
-    }
-  }
-}
+// .preloader {
+//   position: fixed;
+//   z-index: 999;
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   left: 0;
+//   top: 0;
+//   background: $bg;
+//   transform-origin: top;
+//   p {
+//     font-size: 40px;
+//     color: #fff;
+//     z-index: 2;
+//   }
+//   &-circle {
+//     position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 360px;
+//     height: 360px;
+//     border-radius: 50%;
+//     background: conic-gradient(from 226.07deg at 50% 50%, $accent 0deg, rgba($accent, 0) 360deg);
+//     z-index: 1;
+//     animation: spin 6s ease-in-out infinite;
+//     &:after {
+//       content: '';
+//       position: absolute;
+//       left: 50%;
+//       top: 50%;
+//       transform: translate(-50%, -50%); 
+//       width: 110%;
+//       height: 110%;
+//       border-radius: 50%;
+//       background: radial-gradient(40% 40% at 50% 50%, rgba($bg, 0) 0%, $bg 100%)
+//     }
+//   }
+// }
 
-@keyframes spin {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+// @keyframes spin {
+//   0% {
+//     transform: translate(-50%, -50%) rotate(0deg);
+//   }
+//   100% {
+//     transform: translate(-50%, -50%) rotate(360deg);
+//   }
+// }
+
+@media screen and (max-width: 992px) {
+  body, html {
+    overflow-x: hidden;
   }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
+  a, label, input, textarea, button, body {
+    cursor: initial;
+  }
+  a,button {
+    cursor: pointer;
   }
 }

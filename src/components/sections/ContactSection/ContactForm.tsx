@@ -3,17 +3,13 @@ import { useForm, Controller } from 'react-hook-form'
 import { Button, Input, Title, CustomLink } from '@/components/ui'
 import s from './contact.module.scss'
 
-interface ContactFormProps {
-  
-}
-
 interface FormInputs {
   name: string
   connect: string
   message: string
 }
 
-export const ContactForm: FC<ContactFormProps> = () => {
+export const ContactForm: FC = () => {
 
   const { handleSubmit, control } = useForm<FormInputs>({defaultValues: {
     name: '',
@@ -34,14 +30,18 @@ export const ContactForm: FC<ContactFormProps> = () => {
             name='name'
             control={control}
             rules={{ required: true }}
-            render={({ field, fieldState }) => <Input label='Ваше имя' {...field} error={fieldState.error} />}
+            render={({ field, fieldState }) => 
+              <Input label='Ваше имя' className={s.input} {...field} error={fieldState.error} />
+            }
           />
 
           <Controller
             name='connect'
             control={control}
             rules={{ required: true }}
-            render={({ field, fieldState }) => <Input label='Телеграм / телефон / почта' {...field} error={fieldState.error} />}
+            render={({ field, fieldState }) => 
+              <Input label='Телеграм / телефон / почта' className={s.input} {...field} error={fieldState.error} />
+            }
           />
         </div>
 
@@ -49,7 +49,9 @@ export const ContactForm: FC<ContactFormProps> = () => {
           name='message'
           control={control}
           rules={{ required: true }}
-          render={({ field, fieldState }) => <Input textarea label='Ваше сообщение' {...field} error={fieldState.error} />}
+          render={({ field, fieldState }) => 
+            <Input textarea label='Ваше сообщение' className={s.input} {...field} error={fieldState.error} />
+          }
         />
 
         <Button className={s.button} htmlType='submit'>Отправить</Button>
