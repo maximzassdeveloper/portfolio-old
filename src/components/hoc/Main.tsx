@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { FC, PropsWithChildren } from 'react'
 import { Header, Footer } from '@/components'
+import { imgPath } from '@/utils/helper'
 
 interface MainProps {
   title?: string

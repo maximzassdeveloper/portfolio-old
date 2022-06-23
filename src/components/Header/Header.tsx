@@ -2,6 +2,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 import { Container } from '@/components/hoc'
 import { Button, CustomLink, NavList } from '@/components/ui'
 
+import { filePath } from '@/utils/helper'
 import { useAppContext } from '@/context/AppContext'
 import { useAnimation } from '@/animations'
 import { headerAnimations } from './headerAnimation'
@@ -67,7 +68,7 @@ export const Header: FC = () => {
         </nav>
 
         <Button className={s.button} size='small'>
-          <CustomLink hash='#contact' notHoverCursorAnimation>Связаться</CustomLink>
+          <CustomLink notSpaLink={filePath('resume-maxim-zass.pdf')} notHoverCursorAnimation>Резюме</CustomLink>
         </Button>
 
         <span className={s.burger} onClick={burgerHandler} />
@@ -83,7 +84,7 @@ export const Header: FC = () => {
         </nav>
 
         <Button className={s.button} size='small'>
-          <CustomLink hash='#contact' notHoverCursorAnimation>Связаться</CustomLink>
+          <CustomLink notSpaLink={filePath('resume-maxim-zass.pdf')} notHoverCursorAnimation>Резюме</CustomLink>
         </Button>
 
       </Container>

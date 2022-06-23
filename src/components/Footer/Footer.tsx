@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Container } from '@/components/hoc'
 import { Button, CustomLink, NavList, SocialList } from '@/components/ui'
+import { filePath } from '@/utils/helper'
 import s from './footer.module.scss'
 
 export const Footer: FC = () => {
@@ -17,7 +18,7 @@ export const Footer: FC = () => {
         <div className={s.col}>
           <div className={s.button}>
             <Button size='small'>
-              <CustomLink hash='#contact'>Связаться</CustomLink>
+              <CustomLink notSpaLink={filePath('resume-maxim-zass.pdf')} notHoverCursorAnimation>Резюме</CustomLink>
             </Button>
           </div>
           
