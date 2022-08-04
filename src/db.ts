@@ -12,7 +12,7 @@ export const works: IWork[] = [
     slug: "ramp",
     name: "Ramp",
     desc: "Стриминговый сервис фильмов и сериалов.",
-    preview: "ramp/ramp-single.gif",
+    preview: "ramp/single.jpg",
     color: "#C63636",
     role: [
       "Дизайн",
