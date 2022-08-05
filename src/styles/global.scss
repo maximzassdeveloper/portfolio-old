@@ -104,6 +104,20 @@ img {
   z-index: 999;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  main {
+    flex: auto;
+  }
+  .notfound-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 // .grain {
 //   position: absolute;
 //   width: 100%;
