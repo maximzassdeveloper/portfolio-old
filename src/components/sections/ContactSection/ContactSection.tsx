@@ -21,7 +21,7 @@ export const ContactSection: FC = () => {
         <Arrow className={s.arrow} hash="top" dataScroll />
       </div>
 
-      <ContactForm />
+      {/* <ContactForm /> */}
     </Section>
   )
 }
