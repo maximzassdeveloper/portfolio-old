@@ -1,25 +1,17 @@
-import { FC, PropsWithChildren } from 'react'
-
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import { CustomEase } from 'gsap/dist/CustomEase'
-gsap.registerPlugin(ScrollTrigger, CustomEase)
-
+import { FC, PropsWithChildren, useRef } from 'react'
 import { AppContextProvider } from '@/context/AppContext'
-import { CustomCursor } from '@/components'
-
-import dynamic from 'next/dynamic'
-const LocoScroll = dynamic(
-  () => import('@/components/LocoScroll'),
-  { ssr: false }
-)
+import { CustomCursor } from '@/components/CustomCursor/CustomCursor'
+import { LocoScroll } from './LocoScroll'
 
 export const AppWrapper: FC<PropsWithChildren<{}>> = ({ children }) => {
+
+  const scrollContainer = useRef<HTMLDivElement>(null)
+
   return (
     <AppContextProvider>
-      <div className='main' data-scroll-container>
+      <div className='main' ref={scrollContainer} data-scroll-container>
         <CustomCursor />
-        <LocoScroll />
+        <LocoScroll scrollContainer={scrollContainer} />
         {children}
       </div>
     </AppContextProvider>

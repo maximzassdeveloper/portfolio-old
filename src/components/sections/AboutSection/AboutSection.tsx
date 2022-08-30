@@ -19,11 +19,30 @@ export const AboutSection: FC = () => {
           className={classNames(s.text, s.text1)}
           splitText
           dataScroll
-          dataScrollSpeed="-1"
+          dataScrollSpeed="-0.5"
         >
-          Занимаюсь веб-разработкой <br />
-          более 3-х лет. Работал с <br />
-          WordPress, React, Node js, Tilda.
+          Я всегда хотел создавать что-то новое.<br />
+          Занятие веб-разработкой многое <br />
+          изменило для меня, и с тех пор <br />
+          я стараюсь продвигать свою работу <br />
+          к новым горизонтам и с каждым проектом<br />
+          повышать их качество и свои навыки.<br />
+
+        </Title>
+
+        <Title
+          level="p"
+          notTitle
+          className={classNames(s.text, s.text2)}
+          splitText
+          dataScroll
+          dataScrollSpeed="-0.5"
+        >
+          Занимаюсь разработкой сайтов <br />
+          более 3-х лет. По началу я работал <br />
+          на фрилансе на WordPress и Tilda, <br />
+          сейчас же предпочитаю React <br />
+          и всё, что с ним связано.
         </Title>
 
         <CustomImage
@@ -49,31 +68,29 @@ export const AboutSection: FC = () => {
         <Title
           level="p"
           notTitle
-          className={classNames(s.text, s.text2)}
+          className={classNames(s.text, s.text3)}
           splitText
           dataScroll
           dataScrollSpeed="2"
         >
           Для меня важно, чтобы сайт был <br />
-          максимально удобным, лёгким и <br />
-          эстетичным. Сайт должен <br />
-          приносить пользу и помогать <br />
-          решать проблемы клиентов.
+          максимально удобным, лёгким <br />
+          и эстетичным. Сайт должен приносить <br />
+          пользу и помогать решать проблемы пользователей.
         </Title>
 
         <Title
           level="p"
           notTitle
-          className={classNames(s.text, s.text3)}
+          className={classNames(s.text, s.text4)}
           splitText
           dataScroll
           dataScrollSpeed="3"
         >
-          Также я большое внимание <br />
-          уделяю анимациям и <br />
-          wow-эффектам, из-за которых <br />
-          ваши потенциальные клиенты <br />
-          не захотят покидать страницу.
+          Также большое внимание уделяю <br />
+          анимациям и wow-эффектам, <br />
+          из-за которых ваши потенциальные <br />
+          клиенты не захотят покидать страницу.
         </Title>
       </div>
     </Section>

@@ -5,6 +5,7 @@ import { Title, CustomLink } from '@/components/ui'
 import { useCursorHover } from '@/hooks'
 import { imgPath } from '@/utils/helper'
 import s from './work.module.scss'
+import { useAppContext } from '@/context/AppContext'
 
 interface WorkProps {
   work: IWork
@@ -14,21 +15,23 @@ export const Work: FC<WorkProps> = ({ work }) => {
 
   const workRef = useRef<HTMLDivElement>(null)
   const bgRef = useRef<HTMLDivElement>(null)
+  const { cursorRef } = useAppContext()
 
-  const { cursorRef } = useCursorHover(workRef, {
+  useCursorHover({
+    el: workRef.current,
     cursorClass: 'hoverWork',
     onMouseEnter,
     onMouseLeave
   })
 
-  function onMouseEnter () {
+  function onMouseEnter() {
     if (!cursorRef.current || !bgRef.current) return
     cursorRef.current.style.background = work.color
     bgRef.current.style.backgroundImage = `url('${imgPath(work.preview)}')`
     bgRef.current.classList.add(s.workBgActive)
   }
 
-  function onMouseLeave () {
+  function onMouseLeave() {
     if (!cursorRef.current || !bgRef.current) return
     cursorRef.current.style.background = '#ffffff'
     bgRef.current.style.backgroundImage = 'none'
@@ -45,8 +48,8 @@ export const Work: FC<WorkProps> = ({ work }) => {
 
           <div className={s.image}>
             <div data-scroll data-scroll-speed="0.5" data-scroll-offset="0%, 0%">
-              <Image 
-                src={imgPath(work.preview)} 
+              <Image
+                src={imgPath(work.preview)}
                 data-scroll
                 data-scroll-speed="0.5"
                 data-scroll-offset="0%, 0%"

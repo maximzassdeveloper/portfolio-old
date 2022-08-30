@@ -1,46 +1,40 @@
-import { RefObject, useEffect } from 'react'
 import { useAppContext } from '@/context/AppContext'
-import cursorStyles from '@/components/CustomCursor/cursor.module.scss'
+import { useEffect } from 'react'
+import styles from '@/components/CustomCursor/cursor.module.scss'
 
-interface IOptions {
+interface HookProps {
+  el: HTMLElement | null
   cursorClass?: string
-  onMouseEnter?: (e: MouseEvent) => void
-  onMouseLeave?: (e: MouseEvent) => void
+  onMouseEnter?: (event: MouseEvent) => void
+  onMouseLeave?: (event: MouseEvent) => void
 }
 
-export const useCursorHover = (
-  target: RefObject<any>,
-  options: IOptions
-) => {
+export const useCursorHover = ({ el, cursorClass, onMouseEnter, onMouseLeave }: HookProps) => {
 
   const { cursorRef } = useAppContext()
 
-  const onMouseEnter = (e: MouseEvent) => {
-    if (options.cursorClass) {
-      cursorRef.current?.classList.add(cursorStyles[options.cursorClass])
+  const mouseEnterHandler = (e: MouseEvent) => {
+    if (cursorClass && styles[cursorClass]) {
+      cursorRef.current?.classList.add(styles[cursorClass])
     }
-    options.onMouseEnter?.(e)
+    onMouseEnter?.(e)
   }
 
-  const onMouseLeave = (e: MouseEvent) => {
-    if (options.cursorClass) {
-      cursorRef.current?.classList.remove(cursorStyles[options.cursorClass])
+  const mouseLeaveHandler = (e: MouseEvent) => {
+    if (cursorClass && styles[cursorClass]) {
+      cursorRef.current?.classList.remove(styles[cursorClass])
     }
-    options.onMouseLeave?.(e)
+    onMouseLeave?.(e)
   }
 
   useEffect(() => {
-    if (!cursorRef.current || !target?.current) return
-
-    target.current.addEventListener('mouseenter', onMouseEnter)
-    target.current.addEventListener('mouseleave', onMouseLeave)
+    el?.addEventListener('mouseenter', mouseEnterHandler)
+    el?.addEventListener('mouseleave', mouseLeaveHandler)
 
     return () => {
-      target.current?.removeEventListener('mouseenter', onMouseEnter)
-      target.current?.removeEventListener('mouseleave', onMouseLeave)
+      el?.removeEventListener('mouseenter', mouseEnterHandler)
+      el?.removeEventListener('mouseleave', mouseLeaveHandler)
     }
-  }, [])
-
-  return { cursorRef }
+  }, [el])
 
 }

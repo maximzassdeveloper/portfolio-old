@@ -17,17 +17,17 @@ export const AppContextProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
   const hash = useRef<string | null>(null)
   const cursorRef = useRef<HTMLDivElement>(null)
 
-  const onRouteChanged = () => {
-    locoScroll.scrollTo(hash.current)    
-    hash.current = null
-  }
+  // const onRouteChanged = () => {
+  //   locoScroll.scrollTo(hash.current)    
+  //   hash.current = null
+  // }
 
-  useEffect(() => {
-    // Scroll to hash if change route
-    if (hash.current && locoScroll) {
-      onRouteChanged()
-    }
-  }, [locoScroll])
+  // useEffect(() => {
+  //   // Scroll to hash if change route
+  //   if (hash.current && locoScroll) {
+  //     onRouteChanged()
+  //   }
+  // }, [locoScroll])
 
   const defaultContext: IAppContext = {
     locoScroll,

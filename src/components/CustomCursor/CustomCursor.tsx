@@ -9,7 +9,7 @@ export const CustomCursor: FC = () => {
   const { cursorRef: cursor } = useAppContext()
 
   const onDocumentMouseMove = (e: MouseEvent) => {
-    if (!cursor.current) return 
+    if (!cursor.current) return
     cursor.current.style.left = e.pageX + 'px'
     cursor.current.style.top = e.pageY + 'px'
   }
@@ -22,12 +22,12 @@ export const CustomCursor: FC = () => {
     cursor.current?.classList.remove(s.click)
   }
 
-  useEffect(() => {
-    // Clean classes on change page
-    if (!cursor.current) return
-    cursor.current.className = s.cursor
-    cursor.current.style.backgroundColor = '#fff'
-  }, [router.pathname])
+  // useEffect(() => {
+  //   // Clean classes on change page
+  //   if (!cursor.current) return
+  //   cursor.current.className = s.cursor
+  //   cursor.current.style.backgroundColor = '#fff'
+  // }, [router.pathname])
 
   useEffect(() => {
     document.addEventListener('mousemove', onDocumentMouseMove)

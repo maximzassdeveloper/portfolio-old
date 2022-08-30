@@ -1,71 +1,57 @@
-import { useEffect } from 'react'
-import LocomotiveScroll from 'locomotive-scroll'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { FC, useEffect, RefObject } from 'react'
 import { useAppContext } from '@/context/AppContext'
-import { useRouter } from 'next/router'
 
-const addLocoScroll = () => {
-  
-  const scrollContainer = document.querySelector('[data-scroll-container]') as HTMLDivElement | null
-  if (!LocomotiveScroll) return { 
-    locoScroll: null,
-    scrollContainer 
-  }
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { CustomEase } from 'gsap/dist/CustomEase'
+gsap.registerPlugin(ScrollTrigger, CustomEase)
 
-  const locoScroll = new LocomotiveScroll({
-    el: scrollContainer,
-    smooth: true,
-    multiplier: .7,
-    tablet: {
-      breakpoint: 992
-    }
-  })
 
-  ScrollTrigger.scrollerProxy(scrollContainer, {
-    scrollTop(value) {
-      return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y
-    },
-    getBoundingClientRect() {
-      return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight}
-    },
-    pinType: scrollContainer?.style.transform ? 'transform' : 'fixed'
-  })
-
-  return {
-    locoScroll,
-    scrollContainer
-  }
+interface LocoScrollProps {
+  scrollContainer: RefObject<HTMLDivElement>
 }
 
-const LocoScroll = () => {
+export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
 
   const { setLocoScroll } = useAppContext()
-  const router = useRouter()
 
   useEffect(() => {
-    const { locoScroll, scrollContainer } = addLocoScroll()
+    const LocomotiveScroll = require('locomotive-scroll').default
+    const locoScroll = new LocomotiveScroll({
+      el: scrollContainer.current,
+      smooth: true,
+      multiplier: .7,
+      tablet: {
+        breakpoint: 992
+      }
+    })
+
+    ScrollTrigger.scrollerProxy(scrollContainer.current, {
+      scrollTop(value) {
+        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y
+      },
+      getBoundingClientRect() {
+        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
+      },
+      pinType: scrollContainer.current?.style.transform ? 'transform' : 'fixed'
+    })
 
     const onLocoScroll = () => ScrollTrigger.update()
-    const locoUpdate = () => locoScroll && locoScroll.update()
+    const locoUpdate = () => locoScroll.update()
 
-    
-    locoScroll?.on('scroll', onLocoScroll)
-
-    ScrollTrigger.defaults({ scroller: scrollContainer })
+    locoScroll.on('scroll', onLocoScroll)
+    ScrollTrigger.defaults({ scroller: scrollContainer.current })
     ScrollTrigger.addEventListener('refresh', locoUpdate)
     ScrollTrigger.refresh()
 
-    if (locoScroll) setLocoScroll(locoScroll)
+    setLocoScroll(locoScroll)
 
     return () => {
-      locoScroll?.off('scroll', onLocoScroll)
+      locoScroll.off('scroll', onLocoScroll)
       ScrollTrigger.removeEventListener('refresh', locoUpdate)
-      locoScroll?.destroy()
-      setLocoScroll(null)
+      locoScroll.destroy()
     }
-  }, [router.pathname])
+  }, [])
 
-  return null
+  return <></>
 }
-
-export default LocoScroll

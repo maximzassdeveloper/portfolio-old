@@ -33,9 +33,9 @@ export const FirstSection: FC = () => {
   }, [])
 
   return (
-    <Section 
-      className={s.first} 
-      id='first' 
+    <Section
+      className={s.first}
+      id='first'
       addonAfterContainer={<canvas ref={canvasRef} className={s.webgl} />}
     >
 
@@ -47,11 +47,12 @@ export const FirstSection: FC = () => {
         </Title>
       </div>
 
-      <Arrow 
+      <Arrow
         ref={arrowRef}
-        className={s.arrow} 
+        className={s.arrow}
         hash='#about'
-        dataScroll dataScrollSpeed='2' 
+        dataScroll
+        dataScrollSpeed='2'
       />
 
     </Section>

@@ -14,14 +14,14 @@ interface CustomLinkProps {
   className?: string
 }
 
-export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({ 
+export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({
   children, route = '/', hash, notSpaLink, notHoverCursorAnimation, className, onClick
 }) => {
 
   const { locoScroll, hash: hashRef } = useAppContext()
   const router = useRouter()
   const link = useRef<HTMLAnchorElement>(null)
-  !notHoverCursorAnimation && useCursorHover(link, { cursorClass: 'hoverLink' })
+  !notHoverCursorAnimation && useCursorHover({ el: link.current, cursorClass: 'hoverLink' })
 
   const handleClick = (e: ReactMouseEvent<HTMLAnchorElement>) => {
     if (!!notSpaLink) return
@@ -31,7 +31,7 @@ export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({
     if (route && router.pathname !== route) {
       if (hash) hashRef.current = hash
       return router.push(route)
-    } 
+    }
 
     if (hash && locoScroll) {
       locoScroll.scrollTo(hash === 'top' ? 0 : hash)
@@ -46,7 +46,7 @@ export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({
       target={notSpaLink ? '_blank' : undefined}
       rel={notSpaLink ? 'noopener' : undefined}
       href={notSpaLink ? notSpaLink : route}
-      className={classNames(s.link, className)} 
+      className={classNames(s.link, className)}
       onClick={handleClick}
     >
       {children}
