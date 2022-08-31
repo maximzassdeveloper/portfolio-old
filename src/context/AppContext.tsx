@@ -18,7 +18,7 @@ export const AppContextProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
   const cursorRef = useRef<HTMLDivElement>(null)
 
   // const onRouteChanged = () => {
-  //   locoScroll.scrollTo(hash.current)    
+  //   locoScroll.scrollTo(hash.current)
   //   hash.current = null
   // }
 

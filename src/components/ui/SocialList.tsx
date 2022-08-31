@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { CustomLink } from '@/components/ui'
-import { links } from '@/db'
+import { links } from '@/data'
 
 interface SocialListProps {
   className?: string
@@ -10,7 +10,7 @@ interface SocialListProps {
 export const SocialList: FC<SocialListProps> = ({ className, linkClassName }) => {
   return (
     <div className={className}>
-      {Object.entries(links).map(([name, url]) => 
+      {Object.entries(links).map(([name, url]) =>
         <CustomLink key={name} className={linkClassName} notSpaLink={url}>{name}</CustomLink>
       )}
     </div>

@@ -1,14 +1,13 @@
-import { FC } from "react"
-import { Section } from "@/components/hoc"
-import { Arrow, Title, SocialList } from "@/components/ui"
-import { ContactForm } from "./ContactForm"
-import s from "./contact.module.scss"
+import { FC } from 'react'
+import { Section } from '@/components/hoc'
+import { Arrow, Title, SocialList } from '@/components/ui'
+import s from './contact.module.scss'
 
 export const ContactSection: FC = () => {
   return (
     <Section
+      id='contact'
       className={s.contact}
-      id="contact"
       containerClassName={s.container}
     >
       <div className={s.info}>
@@ -18,10 +17,8 @@ export const ContactSection: FC = () => {
 
         <SocialList linkClassName={s.link} />
 
-        <Arrow className={s.arrow} hash="top" dataScroll />
+        <Arrow className={s.arrow} hash='top' dataScroll />
       </div>
-
-      {/* <ContactForm /> */}
     </Section>
   )
 }

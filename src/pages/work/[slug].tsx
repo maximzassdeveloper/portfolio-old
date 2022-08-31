@@ -1,57 +1,34 @@
-import { NextPage, GetStaticPaths, GetStaticProps } from 'next'
+import { NextPage, GetServerSideProps } from 'next'
 import { Main } from '@/components/hoc'
 import { SingleWork } from '@/components/screens'
 import { IWork } from '@/types'
-import { works } from '@/db'
+import { workService } from '@/services/workService'
 
 interface WorkPageProps {
   work: IWork
 }
 
 const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
-
-  // const [work, setWork] = useState<IWork | null>(null)
-  // const router = useRouter()
-  // const { slug } = router.query
-
-  // useEffect(() => {
-  //   const founded = works.find(i => i.slug === slug)
-  //   if (founded) setWork(founded)
-  // }, [])
-
   return (
     <Main>
-      {work && <SingleWork work={work} />}
+      <SingleWork work={work} />
     </Main>
   )
 }
 
-export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
-		const paths = works.map(work => ({
-			params: { slug: work.slug },
-		}))
+    const data = await workService.getWork(`${params?.slug}`)
 
-		return {
-			paths,
-			fallback: 'blocking',
-		}
-	} catch (e) {
-		// console.log(errorCatch(e))
+    if (!data) {
+      return { notFound: true }
+    }
 
-		return {
-			paths: [],
-			fallback: false,
-		}
-	}
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const work = works.find(i => i.slug === params?.slug)
-    if (!work) throw new Error('Work not found')
-
-    return { props: { work } }
+    return {
+      props: {
+        work: data
+      }
+    }
   } catch {
     return { notFound: true }
   }

@@ -3,7 +3,7 @@
 }
 
 .content {
-  height: 1300px;
+  height: 1250px;
   position: relative;
   & > * {
     position: absolute;
@@ -11,7 +11,7 @@
 }
 
 .text {
-  font-size: 24px;
+  font-size: 23px;
   z-index: 1;
   * {
     line-height: 1.4em;
@@ -23,8 +23,8 @@
 .text3 { left: 5%; top: 700px; max-width: 530px; }
 .text4 { left: 5%; top: 900px; max-width: 530px; }
 
-.image1 { left: 2%; top: 0px; max-width: 430px; }
-.image2 { right: 0px; top: 760px; max-width: 500px; }
+.image1 { left: 2%; top: 0px; max-width: 410px; }
+.image2 { right: 0px; top: 760px; max-width: 470px; }
 
 
 @media screen and (max-width: 1200px) {

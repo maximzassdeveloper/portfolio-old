@@ -1,9 +1,9 @@
-import { FC } from "react"
-import classNames from "classnames"
-import { Section } from "@/components/hoc"
-import { CustomImage, Title } from "@/components/ui"
-import { imgPath } from "@/utils/helper"
-import s from "./about.module.scss"
+import { FC } from 'react'
+import classNames from 'classnames'
+import { Section } from '@/components/hoc'
+import { CustomImage, Title } from '@/components/ui'
+import { imgPath } from '@/utils/helper'
+import s from './about.module.scss'
 
 export const AboutSection: FC = () => {
   return (
@@ -15,7 +15,6 @@ export const AboutSection: FC = () => {
       <div className={s.content}>
         <Title
           level="p"
-          notTitle
           className={classNames(s.text, s.text1)}
           splitText
           dataScroll
@@ -32,7 +31,6 @@ export const AboutSection: FC = () => {
 
         <Title
           level="p"
-          notTitle
           className={classNames(s.text, s.text2)}
           splitText
           dataScroll
@@ -67,7 +65,6 @@ export const AboutSection: FC = () => {
 
         <Title
           level="p"
-          notTitle
           className={classNames(s.text, s.text3)}
           splitText
           dataScroll
@@ -81,7 +78,6 @@ export const AboutSection: FC = () => {
 
         <Title
           level="p"
-          notTitle
           className={classNames(s.text, s.text4)}
           splitText
           dataScroll

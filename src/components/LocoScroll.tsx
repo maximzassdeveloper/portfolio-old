@@ -4,6 +4,7 @@ import { useAppContext } from '@/context/AppContext'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { CustomEase } from 'gsap/dist/CustomEase'
+import { useRouter } from 'next/router'
 gsap.registerPlugin(ScrollTrigger, CustomEase)
 
 
@@ -14,8 +15,9 @@ interface LocoScrollProps {
 export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
 
   const { setLocoScroll } = useAppContext()
+  const router = useRouter()
 
-  useEffect(() => {
+  const locoScrollInit = () => {
     const LocomotiveScroll = require('locomotive-scroll').default
     const locoScroll = new LocomotiveScroll({
       el: scrollContainer.current,
@@ -25,6 +27,13 @@ export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
         breakpoint: 992
       }
     })
+
+    return locoScroll
+  }
+
+  useEffect(() => {
+    const locoScroll = locoScrollInit()
+    if (!locoScroll) return
 
     ScrollTrigger.scrollerProxy(scrollContainer.current, {
       scrollTop(value) {
@@ -51,7 +60,7 @@ export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
       ScrollTrigger.removeEventListener('refresh', locoUpdate)
       locoScroll.destroy()
     }
-  }, [])
+  }, [router.pathname])
 
   return <></>
 }

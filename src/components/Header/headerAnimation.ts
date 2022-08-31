@@ -1,13 +1,13 @@
 import { gsap, Expo } from 'gsap'
+import styles from './header.module.scss'
 
-export const headerAnimations = (styles: { [key: string]: string }) => {
+export const headerAnimations = () => {
   const animations = {
     logo() {
       gsap.to(`.${styles.logo}`, {
         duration: .3,
         y: 0,
         opacity: 1,
-        // delay: 1.2,
         ease: Expo.easeIn
       })
     },
@@ -15,7 +15,6 @@ export const headerAnimations = (styles: { [key: string]: string }) => {
       gsap.to(`.${styles.menu} li a`, {
         duration: .2,
         y: 0,
-        // delay: 1.3,
         delay: .1,
         ease: Expo.easeIn,
         stagger: .1
@@ -26,7 +25,6 @@ export const headerAnimations = (styles: { [key: string]: string }) => {
         duration: .3,
         y: 0,
         opacity: 1,
-        // delay: 1.6,
         delay: .4,
         ease: Expo.easeIn
       })

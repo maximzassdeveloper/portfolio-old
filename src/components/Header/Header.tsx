@@ -1,10 +1,10 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useMemo, useRef, useState } from 'react'
 import { Container } from '@/components/hoc'
 import { Button, CustomLink, NavList } from '@/components/ui'
 
 import { filePath } from '@/utils/helper'
 import { useAppContext } from '@/context/AppContext'
-import { useAnimation } from '@/animations'
+import { useAnimation } from '@/hooks'
 import { headerAnimations } from './headerAnimation'
 
 import classNames from 'classnames'
@@ -12,12 +12,12 @@ import s from './header.module.scss'
 
 export const Header: FC = () => {
 
-  const { locoScroll } = useAppContext()
   const header = useRef<HTMLDivElement>(null)
   const oldY = useRef(0)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { locoScroll } = useAppContext()
 
-  const animations = headerAnimations(s)
+  const animations = useMemo(() => headerAnimations(), [])
   useAnimation(() => {
     animations.logo()
     animations.navLinks()
@@ -36,7 +36,7 @@ export const Header: FC = () => {
     setIsMobileMenuOpen(prev => !prev)
   }
 
-  // Shown header on scroll up
+  // Show header on scroll up
   const onScroll = (e: any) => {
     if (!header.current) return
     if (e.scroll.y > header.current.offsetHeight && e.scroll.y > oldY.current) {
