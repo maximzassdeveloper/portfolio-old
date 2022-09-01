@@ -26,7 +26,7 @@ export const CustomCursor: FC = () => {
     // Clean classes on change page
     if (!cursor.current) return
     cursor.current.className = s.cursor
-    cursor.current.style.backgroundColor = '#fff'
+    cursor.current.style.background = '#fff'
   }, [router.pathname])
 
   useEffect(() => {

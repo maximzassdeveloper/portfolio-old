@@ -23,6 +23,8 @@ export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
       el: scrollContainer.current,
       smooth: true,
       multiplier: .7,
+      gestureDirection: 'both',
+      getDirection: true,
       tablet: {
         breakpoint: 992
       }

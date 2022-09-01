@@ -6,8 +6,6 @@ import s from './title.module.scss'
 export const titleAnimation = (ref: RefObject<HTMLHeadingElement>) => {
   if (!ref.current) return
 
-  console.log('rerender')
-
   const lines = ref.current.querySelectorAll('.line')
   if (!lines?.length) return
 

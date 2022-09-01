@@ -4,8 +4,8 @@ import { IWork } from '@/types'
 import { Title, CustomLink } from '@/components/ui'
 import { useCursorHover } from '@/hooks'
 import { imgPath } from '@/utils/helper'
-import s from './work.module.scss'
 import { useAppContext } from '@/context/AppContext'
+import s from './work.module.scss'
 
 interface WorkProps {
   work: IWork
@@ -47,12 +47,14 @@ export const Work: FC<WorkProps> = ({ work }) => {
         <div className={s.container}>
 
           <div className={s.image}>
-            <div data-scroll data-scroll-speed="0.5" data-scroll-offset="0%, 0%">
+            {/* <div data-scroll data-scroll-speed="0.5" data-scroll-offset="0%, 0%" data-scroll-direction='horizontal'> */}
+            <div>
               <Image
                 src={imgPath(work.preview)}
-                data-scroll
-                data-scroll-speed="0.5"
-                data-scroll-offset="0%, 0%"
+                // data-scroll
+                // data-scroll-speed="0.5"
+                // data-scroll-offset="0%, 0%"
+                // data-scroll-direction='horizontal'
                 layout='fill'
                 alt={work.name}
               />
@@ -60,7 +62,16 @@ export const Work: FC<WorkProps> = ({ work }) => {
           </div>
 
           <div className={s.content}>
-            <Title className={s.title} level='h3' splitText>{work.name}</Title>
+            <Title
+              className={s.title}
+              level='h3'
+              splitText
+              data-scroll
+              data-scroll-direction='horizontal'
+              data-scroll-spedd='2'
+            >
+              {work.name}
+            </Title>
           </div>
 
         </div>

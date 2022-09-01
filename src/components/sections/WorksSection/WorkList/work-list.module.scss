@@ -1,0 +1,17 @@
+.horizontal {
+  overflow: hidden;
+  display: flex;
+}
+
+.scrolled {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list {
+  height: 100%;
+  display: flex;
+}

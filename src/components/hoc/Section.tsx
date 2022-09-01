@@ -8,8 +8,8 @@ interface SectionProps {
   addonAfterContainer?: ReactNode
 }
 
-export const Section: FC<PropsWithChildren<SectionProps>> = ({ 
-  children, id, className, containerClassName, addonAfterContainer 
+export const Section: FC<PropsWithChildren<SectionProps>> = ({
+  children, id, className, containerClassName, addonAfterContainer
 }) => {
   return (
     <section className={className} id={id} data-scroll-section>

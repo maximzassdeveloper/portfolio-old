@@ -37,8 +37,11 @@ export const Title: FC<PropsWithChildren<TitleProps>> = ({
     <Tag
       ref={ref}
       className={classes}
-      data-scroll={dataScroll}
-      data-scroll-speed={dataScrollSpeed}
+      // data-scroll={dataScroll}
+      // data-scroll-speed={dataScrollSpeed}
+      data-scroll
+      data-scroll-direction='horizontal'
+      data-scroll-spedd='2'
     >
       {children}
     </Tag>
