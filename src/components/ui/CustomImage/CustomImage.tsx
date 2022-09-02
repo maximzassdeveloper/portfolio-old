@@ -11,7 +11,7 @@ interface CustomImageProps extends ImageProps {
 }
 
 export const CustomImage: FC<CustomImageProps> = ({
-  className, dataScroll = true, dataScrollSpeed, alt, ...rest
+  className, dataScroll = true, dataScrollSpeed, alt = '', ...rest
 }) => {
 
   const ref = useRef<HTMLDivElement>(null)
@@ -25,7 +25,7 @@ export const CustomImage: FC<CustomImageProps> = ({
       data-scroll={dataScroll}
       data-scroll-speed={dataScrollSpeed}
     >
-      <Image {...rest} alt={alt || ''} />
+      <Image {...rest} alt={alt} />
     </div>
   )
 }

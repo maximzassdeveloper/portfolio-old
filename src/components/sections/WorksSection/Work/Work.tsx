@@ -40,21 +40,16 @@ export const Work: FC<WorkProps> = ({ work }) => {
 
   return (
     <div className={s.work} data-scroll ref={workRef}>
-      <CustomLink route={`/work/${work.slug}`} notHoverCursorAnimation>
+      <CustomLink href={`/work/${work.slug}`} animateOnHover={false}>
 
         <div className={s.workBg} ref={bgRef} />
 
         <div className={s.container}>
 
           <div className={s.image}>
-            {/* <div data-scroll data-scroll-speed="0.5" data-scroll-offset="0%, 0%" data-scroll-direction='horizontal'> */}
             <div>
               <Image
                 src={imgPath(work.preview)}
-                // data-scroll
-                // data-scroll-speed="0.5"
-                // data-scroll-offset="0%, 0%"
-                // data-scroll-direction='horizontal'
                 layout='fill'
                 alt={work.name}
               />
@@ -66,9 +61,6 @@ export const Work: FC<WorkProps> = ({ work }) => {
               className={s.title}
               level='h3'
               splitText
-              data-scroll
-              data-scroll-direction='horizontal'
-              data-scroll-spedd='2'
             >
               {work.name}
             </Title>

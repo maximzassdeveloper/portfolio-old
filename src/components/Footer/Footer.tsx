@@ -18,10 +18,16 @@ export const Footer: FC = () => {
         <div className={s.col}>
           <div className={s.button}>
             <Button size='small'>
-              <CustomLink notSpaLink={filePath('resume-maxim-zass.pdf')} notHoverCursorAnimation>Резюме</CustomLink>
+              <CustomLink
+                href={filePath('resume-maxim-zass.pdf')}
+                blank
+                animateOnHover={false}
+              >
+                Резюме
+              </CustomLink>
             </Button>
           </div>
-          
+
           <SocialList className={s.socials} />
         </div>
 

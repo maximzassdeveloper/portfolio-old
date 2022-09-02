@@ -2,19 +2,18 @@ import { FC, PropsWithChildren, useEffect, useRef } from 'react'
 import SplitType from 'split-type'
 import classNames from 'classnames'
 import { useAnimation } from '@/hooks'
+import { LocoScrollAttrs } from '@/types'
 import { titleAnimation } from './titleAnimation'
 import s from './title.module.scss'
 
-interface TitleProps {
+interface TitleProps extends LocoScrollAttrs {
   level?: 'h1' | 'h2' | 'h3' | 'p'
-  dataScroll?: boolean
-  dataScrollSpeed?: string
   splitText?: boolean
   className?: string
 }
 
 export const Title: FC<PropsWithChildren<TitleProps>> = ({
-  children, level, dataScroll, dataScrollSpeed, splitText, className
+  children, level, splitText, className, ...locoAttrs
 }) => {
 
   const ref = useRef<HTMLHeadingElement>(null)
@@ -37,11 +36,7 @@ export const Title: FC<PropsWithChildren<TitleProps>> = ({
     <Tag
       ref={ref}
       className={classes}
-      // data-scroll={dataScroll}
-      // data-scroll-speed={dataScrollSpeed}
-      data-scroll
-      data-scroll-direction='horizontal'
-      data-scroll-spedd='2'
+      {...locoAttrs}
     >
       {children}
     </Tag>

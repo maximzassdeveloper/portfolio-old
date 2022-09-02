@@ -11,13 +11,13 @@ export const ContactSection: FC = () => {
       containerClassName={s.container}
     >
       <div className={s.info}>
-        <Title className={s.title} splitText dataScroll>
+        <Title className={s.title} splitText data-scroll>
           Контакты
         </Title>
 
         <SocialList linkClassName={s.link} />
 
-        <Arrow className={s.arrow} hash='top' dataScroll />
+        <Arrow className={s.arrow} scrollTo={0} data-scroll />
       </div>
     </Section>
   )

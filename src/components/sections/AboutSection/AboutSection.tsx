@@ -8,7 +8,7 @@ import s from './about.module.scss'
 export const AboutSection: FC = () => {
   return (
     <Section className={s.about} id="about">
-      <Title splitText dataScroll>
+      <Title splitText data-scroll>
         Обо мне
       </Title>
 
@@ -17,8 +17,8 @@ export const AboutSection: FC = () => {
           level="p"
           className={classNames(s.text, s.text1)}
           splitText
-          dataScroll
-          dataScrollSpeed="-0.5"
+          data-scroll
+          data-scroll-speed="-0.5"
         >
           Я всегда хотел создавать что-то новое.<br />
           Занятие веб-разработкой многое <br />
@@ -33,8 +33,8 @@ export const AboutSection: FC = () => {
           level="p"
           className={classNames(s.text, s.text2)}
           splitText
-          dataScroll
-          dataScrollSpeed="-0.5"
+          data-scroll
+          data-scroll-speed="-0.5"
         >
           Занимаюсь разработкой сайтов <br />
           более 3-х лет. По началу я работал <br />
@@ -67,8 +67,8 @@ export const AboutSection: FC = () => {
           level="p"
           className={classNames(s.text, s.text3)}
           splitText
-          dataScroll
-          dataScrollSpeed="2"
+          data-scroll
+          data-scroll-speed="2"
         >
           Для меня важно, чтобы сайт был <br />
           максимально удобным, лёгким <br />
@@ -80,8 +80,8 @@ export const AboutSection: FC = () => {
           level="p"
           className={classNames(s.text, s.text4)}
           splitText
-          dataScroll
-          dataScrollSpeed="3"
+          data-scroll
+          data-scroll-speed="3"
         >
           Также большое внимание уделяю <br />
           анимациям и wow-эффектам, <br />

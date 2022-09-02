@@ -1,62 +1,38 @@
-import { FC, PropsWithChildren, MouseEvent as ReactMouseEvent, useRef, MouseEventHandler } from 'react'
-import { useRouter } from 'next/router'
+import { FC, PropsWithChildren, useRef } from 'react'
 import classNames from 'classnames'
-import { useAppContext } from '@/context/AppContext'
+import Link, { LinkProps } from 'next/link'
 import { useCursorHover } from '@/hooks'
 import s from './link.module.scss'
-import Link from 'next/link'
 
-interface CustomLinkProps {
-  route?: string
-  hash?: string
-  notHoverCursorAnimation?: boolean
-  notSpaLink?: string
-  onClick?: MouseEventHandler<HTMLAnchorElement>
+interface CustomLinkProps extends LinkProps {
+  href: string
+  animateOnHover?: boolean
+  blank?: boolean
   className?: string
 }
 
 export const CustomLink: FC<PropsWithChildren<CustomLinkProps>> = ({
-  children, route = '/', hash, notSpaLink, notHoverCursorAnimation, className, onClick
+  children, href, animateOnHover = true, blank, className, onClick, ...rest
 }) => {
 
-  const { locoScroll, hash: hashRef } = useAppContext()
-  const router = useRouter()
   const link = useRef<HTMLAnchorElement>(null)
-  !notHoverCursorAnimation && useCursorHover({ el: link.current, cursorClass: 'hoverLink' })
-
-  // const handleClick = (e: ReactMouseEvent<HTMLAnchorElement>) => {
-  //   if (!!notSpaLink) return
-  //   e.preventDefault()
-
-  //   // If route (url) change
-  //   if (route && router.pathname !== route) {
-  //     if (hash) hashRef.current = hash
-  //     return router.push(route)
-  //   }
-
-  //   if (hash && locoScroll) {
-  //     locoScroll.scrollTo(hash === 'top' ? 0 : hash)
-  //   }
-
-  //   onClick?.(e)
-  // }
+  animateOnHover && useCursorHover({ el: link.current, cursorClass: 'hoverLink' })
 
   return (
-    <Link ref={link} href={route}>
-      <a className={classNames(s.link, className)}>
+    <Link
+      href={href}
+      passHref={blank}
+      {...rest}
+    >
+      <a
+        ref={link}
+        className={classNames(s.link, className)}
+        target={blank ? '_blank' : '_self'}
+        rel={blank ? 'noopener' : undefined}
+        onClick={onClick}
+      >
         {children}
-
       </a>
     </Link>
-    // <a
-    //   ref={link}
-    //   target={notSpaLink ? '_blank' : undefined}
-    //   rel={notSpaLink ? 'noopener' : undefined}
-    //   href={notSpaLink ? notSpaLink : route}
-    //   className={classNames(s.link, className)}
-    //   onClick={handleClick}
-    // >
-    //   {children}
-    // </a>
   )
 }

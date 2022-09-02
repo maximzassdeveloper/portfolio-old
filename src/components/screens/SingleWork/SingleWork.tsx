@@ -20,7 +20,7 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
 
   return (
     <div className={s.work} data-scroll-section>
-      <div 
+      <div
         className={s.bg}
         style={{
           backgroundImage: `url(${imgPath(work.preview)})`,
@@ -28,10 +28,12 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
         }}
       />
       <Container>
-        <Title 
-          className={s.title} 
+        <Title
+          className={s.title}
           level='h1'
           splitText
+          data-scroll
+          data-scroll-speed='2'
         >
           {work.name}
         </Title>
@@ -42,7 +44,7 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
             {work.role?.length && (
               <div className={s.list}>
                 <Title level='h3'>Роль</Title>
-                {work.role.map(roleName => 
+                {work.role.map(roleName =>
                   <span key={roleName}>{roleName}</span>
                 )}
               </div>
@@ -50,7 +52,7 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
             {work.stack?.length && (
               <div className={s.list}>
                 <Title level='h3'>Технологии</Title>
-                {work.stack.map(tech => 
+                {work.stack.map(tech =>
                   <span key={tech}>{tech}</span>
                 )}
               </div>
@@ -61,8 +63,8 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
 
           {work.links && !isEmpty(work.links) && (
             <div className={s.links}>
-              {Object.entries(work.links).map(([name, url]) => 
-                <CustomLink key={name+url} notSpaLink={url}>{name}</CustomLink>
+              {Object.entries(work.links).map(([name, url]) =>
+                <CustomLink key={name + url} href={url} blank>{name}</CustomLink>
               )}
             </div>
           )}

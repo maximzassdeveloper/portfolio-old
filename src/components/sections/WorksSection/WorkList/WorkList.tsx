@@ -3,20 +3,16 @@ import { Work } from '../Work/Work'
 import { works } from '@/data'
 import s from './work-list.module.scss'
 
-/* TODO: Закоммитить */
-
 export const WorkList: FC = () => {
   return (
     <div
-      id='horizontalWorks'
       className={s.horizontal}
-    // style={{ height: 100 * works.length + 'vh' }}
     >
       <div
         className={s.scrolled}
         data-scroll
-        data-scroll-sticky
-        data-scroll-target='#horizontalWorks'
+        data-scroll-sticky={true}
+        data-scroll-target={`.${s.horizontal}`}
       >
         <div className={s.list}>
           {works.map(work =>

@@ -60,7 +60,7 @@ export const Header: FC = () => {
       <Container className={s.container}>
 
         <div className={s.logo}>
-          <CustomLink className={s.link} route='/'>М. Засс</CustomLink>
+          <CustomLink className={s.link} href='/'>М. Засс</CustomLink>
         </div>
 
         <nav className={s.menu}>
@@ -68,7 +68,13 @@ export const Header: FC = () => {
         </nav>
 
         <Button className={s.button} size='small'>
-          <CustomLink notSpaLink={filePath('resume-maxim-zass.pdf')} notHoverCursorAnimation>Резюме</CustomLink>
+          <CustomLink
+            href={filePath('resume-maxim-zass.pdf')}
+            blank
+            animateOnHover={false}
+          >
+            Резюме
+          </CustomLink>
         </Button>
 
         <span className={s.burger} onClick={burgerHandler} />
@@ -84,7 +90,13 @@ export const Header: FC = () => {
         </nav>
 
         <Button className={s.button} size='small'>
-          <CustomLink notSpaLink={filePath('resume-maxim-zass.pdf')} notHoverCursorAnimation>Резюме</CustomLink>
+          <CustomLink
+            href={filePath('resume-maxim-zass.pdf')}
+            blank
+            animateOnHover={false}
+          >
+            Резюме
+          </CustomLink>
         </Button>
 
       </Container>

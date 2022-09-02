@@ -27,7 +27,12 @@ export const FirstSection: FC = () => {
     >
 
       <div className={s.content}>
-        <Title level='h1' className={cn(s.title, 'split-text')} dataScroll dataScrollSpeed='2'>
+        <Title
+          level='h1'
+          className={cn(s.title, 'split-text')}
+          data-scroll
+          data-scroll-speed='2'
+        >
           <div className={cn(s.line, 'line')}>Привет, я <span>Максим Засс</span></div>
           <div className={cn(s.line, 'line')}>— <span>UI/UX</span> дизайнер</div>
           <div className={cn(s.line, 'line')}>и <span>frontend</span>-разработчик<br /></div>
@@ -37,9 +42,9 @@ export const FirstSection: FC = () => {
       <Arrow
         ref={arrowRef}
         className={s.arrow}
-        hash='#about'
-        dataScroll
-        dataScrollSpeed='2'
+        scrollTo='#about'
+        data-scroll
+        data-scroll-speed='2'
       />
 
     </Section>

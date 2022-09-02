@@ -11,17 +11,19 @@ interface FormInputs {
 
 export const ContactForm: FC = () => {
 
-  const { handleSubmit, control } = useForm<FormInputs>({defaultValues: {
-    name: '',
-    connect: '',
-    message: ''
-  }})
+  const { handleSubmit, control } = useForm<FormInputs>({
+    defaultValues: {
+      name: '',
+      connect: '',
+      message: ''
+    }
+  })
 
   const onSubmit = handleSubmit(data => console.log(data))
 
   return (
     <div className={s.form}>
-      <Title className={s.title} splitText dataScroll>Оставить заявку</Title>
+      <Title className={s.title} splitText data-scroll>Оставить заявку</Title>
 
       <form onSubmit={onSubmit}>
 
@@ -30,7 +32,7 @@ export const ContactForm: FC = () => {
             name='name'
             control={control}
             rules={{ required: true }}
-            render={({ field, fieldState }) => 
+            render={({ field, fieldState }) =>
               <Input label='Ваше имя' className={s.input} {...field} error={fieldState.error} />
             }
           />
@@ -39,7 +41,7 @@ export const ContactForm: FC = () => {
             name='connect'
             control={control}
             rules={{ required: true }}
-            render={({ field, fieldState }) => 
+            render={({ field, fieldState }) =>
               <Input label='Телеграм / телефон / почта' className={s.input} {...field} error={fieldState.error} />
             }
           />
@@ -49,7 +51,7 @@ export const ContactForm: FC = () => {
           name='message'
           control={control}
           rules={{ required: true }}
-          render={({ field, fieldState }) => 
+          render={({ field, fieldState }) =>
             <Input textarea label='Ваше сообщение' className={s.input} {...field} error={fieldState.error} />
           }
         />

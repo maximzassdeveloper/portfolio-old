@@ -8,22 +8,22 @@ interface NavListProps {
 }
 
 const menuArray = [
-  { name: 'Обо мне', hash: '#about' },
-  { name: 'Проекты', hash: '#works' },
-  { name: 'Контакты', hash: '#contact' }
+  { name: 'Обо мне', route: '/about' },
+  { name: 'Проекты', route: '/works' },
+  { name: 'Контакты', route: '/contact' }
 ]
 
 export const NavList: FC<NavListProps> = ({ className, onLinkClick, linkClassName }) => {
   return (
     <ul className={className}>
-      {menuArray.map(item => 
-        <li key={item.name+item.hash}>
+      {menuArray.map(({ name, route }) =>
+        <li key={route}>
           <CustomLink
+            href={route}
             onClick={onLinkClick}
             className={linkClassName}
-            hash={item.hash}
           >
-            {item.name}
+            {name}
           </CustomLink>
         </li>
       )}

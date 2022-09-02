@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { Section } from '@/components/hoc'
 import { Title } from '@/components/ui'
@@ -10,7 +10,11 @@ import wls from './WorkList/work-list.module.scss'
 
 export const WorksSection: FC = () => {
 
-  useAnimation(horizontalAnimation)
+  // useAnimation(horizontalAnimation)
+
+  useEffect(() => {
+    horizontalAnimation()
+  }, [])
 
   function horizontalAnimation() {
     const horizontal = document.querySelector(`.${wls.horizontal}`) as HTMLElement
@@ -26,11 +30,8 @@ export const WorksSection: FC = () => {
       ease: 'none',
       scrollTrigger: {
         trigger: horizontal,
-        scroller: '[data-scroll-container]',
         start: 'top top',
         end: () => '+=' + distance,
-        invalidateOnRefresh: true,
-        anticipatePin: 1,
         scrub: true,
       }
     })
@@ -42,7 +43,7 @@ export const WorksSection: FC = () => {
       className={s.works}
       addonAfterContainer={<WorkList />}
     >
-      <Title splitText dataScroll>Проекты</Title>
+      <Title splitText data-scroll>Проекты</Title>
     </Section>
   )
 }

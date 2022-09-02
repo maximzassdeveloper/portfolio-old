@@ -1,4 +1,4 @@
-import { FC, useEffect, RefObject } from 'react'
+import { FC, useEffect, RefObject, useCallback } from 'react'
 import { useAppContext } from '@/context/AppContext'
 
 import { gsap } from 'gsap'
@@ -15,7 +15,7 @@ interface LocoScrollProps {
 export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
 
   const { setLocoScroll } = useAppContext()
-  const router = useRouter()
+  const { pathname } = useRouter()
 
   const locoScrollInit = () => {
     const LocomotiveScroll = require('locomotive-scroll').default
@@ -23,8 +23,6 @@ export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
       el: scrollContainer.current,
       smooth: true,
       multiplier: .7,
-      gestureDirection: 'both',
-      getDirection: true,
       tablet: {
         breakpoint: 992
       }
@@ -62,7 +60,7 @@ export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
       ScrollTrigger.removeEventListener('refresh', locoUpdate)
       locoScroll.destroy()
     }
-  }, [router.pathname])
+  }, [pathname])
 
   return <></>
 }
