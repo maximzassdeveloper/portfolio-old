@@ -1,4 +1,4 @@
-import { FC, useEffect, RefObject, useCallback } from 'react'
+import { FC, useEffect, RefObject, memo } from 'react'
 import { useAppContext } from '@/context/AppContext'
 
 import { gsap } from 'gsap'
@@ -12,7 +12,7 @@ interface LocoScrollProps {
   scrollContainer: RefObject<HTMLDivElement>
 }
 
-export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
+export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
 
   const { setLocoScroll } = useAppContext()
   const { pathname } = useRouter()
@@ -28,11 +28,11 @@ export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
       }
     })
 
-    return locoScroll
+    return { locoScroll, scrollContainer }
   }
 
   useEffect(() => {
-    const locoScroll = locoScrollInit()
+    const { locoScroll } = locoScrollInit()
     if (!locoScroll) return
 
     ScrollTrigger.scrollerProxy(scrollContainer.current, {
@@ -56,11 +56,13 @@ export const LocoScroll: FC<LocoScrollProps> = ({ scrollContainer }) => {
     setLocoScroll(locoScroll)
 
     return () => {
+      console.log('out')
       locoScroll.off('scroll', onLocoScroll)
       ScrollTrigger.removeEventListener('refresh', locoUpdate)
       locoScroll.destroy()
+      setLocoScroll(null)
     }
   }, [pathname])
 
   return <></>
-}
+})

@@ -5,9 +5,13 @@ import { links } from '@/data'
 interface SocialListProps {
   className?: string
   linkClassName?: string
+  showLinkArrow?: boolean
+  linkArrowSize?: number
 }
 
-export const SocialList: FC<SocialListProps> = ({ className, linkClassName }) => {
+export const SocialList: FC<SocialListProps> = ({
+  className, linkClassName, showLinkArrow, linkArrowSize
+}) => {
   return (
     <div className={className}>
       {Object.entries(links).map(([name, url]) =>
@@ -15,6 +19,8 @@ export const SocialList: FC<SocialListProps> = ({ className, linkClassName }) =>
           key={name}
           href={url}
           className={linkClassName}
+          showArrow={showLinkArrow}
+          arrowSize={linkArrowSize}
           blank
         >
           {name}

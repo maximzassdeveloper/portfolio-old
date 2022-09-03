@@ -3,7 +3,11 @@ import { Section } from '@/components/hoc'
 import { Arrow, Title, SocialList } from '@/components/ui'
 import s from './contact.module.scss'
 
-export const ContactSection: FC = () => {
+interface ContactSectionProps {
+  showArrowTop?: boolean
+}
+
+export const ContactSection: FC<ContactSectionProps> = ({ showArrowTop = true }) => {
   return (
     <Section
       id='contact'
@@ -15,9 +19,9 @@ export const ContactSection: FC = () => {
           Контакты
         </Title>
 
-        <SocialList linkClassName={s.link} />
+        <SocialList linkClassName={s.link} showLinkArrow linkArrowSize={20} />
 
-        <Arrow className={s.arrow} scrollTo={0} data-scroll />
+        {showArrowTop && <Arrow className={s.arrow} scrollTo={0} data-scroll />}
       </div>
     </Section>
   )

@@ -1,15 +1,10 @@
-import { Main } from "@/components/hoc"
-import { Screen404 } from "@/components/screens"
-import { CustomLink } from "@/components/ui"
-import { NextPage } from "next"
-import s from "./screen404.module.scss"
+import { NextPage } from 'next'
+import { Page404 } from '@/components/screens'
 
-const Page404: NextPage = () => {
+const NotFoundPage: NextPage = () => {
   return (
-    <Main className="notfound-main">
-      <Screen404 />
-    </Main>
+    <Page404 />
   )
 }
 
-export default Page404
+export default NotFoundPage

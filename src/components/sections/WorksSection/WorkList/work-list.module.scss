@@ -1,10 +1,14 @@
 .horizontal {
-  // overflow: hidden;s
+  // position: relative;
+  // height: 2961px;
+  overflow: hidden;
   display: flex;
 }
 
 .scrolled {
   position: relative;
+  // position: sticky;
+  top: 10px;
   height: 100vh;
   display: flex;
   justify-content: flex-start;

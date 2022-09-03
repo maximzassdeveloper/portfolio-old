@@ -5,7 +5,7 @@
   margin: -80px auto 70px;
 }
 
-.bg {
+.bg, .blurBg {
   position: relative;
   width: 100%;
   height: 460px;
@@ -22,6 +22,15 @@
     height: 150px;
     background: linear-gradient(180deg, rgba($bg, 0) 0%, rgba($bg, .7) 30%, $bg 70%);
   }
+}
+
+.blurBg {
+  position: absolute;
+  overflow: hidden;
+  height: calc(100% - 50px);
+  background-size: cover;
+  filter: blur(50px);
+  z-index: -1;
 }
 
 .info {

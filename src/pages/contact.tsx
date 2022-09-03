@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
-import { Home } from '@/components/screens'
+import { Contact } from '@/components/screens'
 
 const ContactPage: NextPage = () => {
   return (
-    <h1>Контакты</h1>
+    <Contact />
   )
 }
 

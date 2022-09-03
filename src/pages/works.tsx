@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
-import { Home } from '@/components/screens'
+import { Works } from '@/components/screens'
 
 const WorksPage: NextPage = () => {
   return (
-    <h1>Работы</h1>
+    <Works />
   )
 }
 

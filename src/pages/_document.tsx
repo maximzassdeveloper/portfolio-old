@@ -1,5 +1,5 @@
-import { Html, Head, Main, NextScript } from "next/document"
-import { imgPath } from "@/utils/helper"
+import { Html, Head, Main, NextScript } from 'next/document'
+import { imgPath } from '@/utils/helper'
 
 export default function Document() {
   return (

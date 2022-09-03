@@ -1,3 +1,6 @@
 export { Home } from './Home/Home'
+export { About } from './About/About'
+export { Works } from './Works/Works'
+export { Contact } from './Contact/Contact'
 export { SingleWork } from './SingleWork/SingleWork'
-export { Screen404 } from './Screen404/Screen404'
+export { Page404 } from './Page404/Page404'
