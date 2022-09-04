@@ -1,13 +1,10 @@
 .horizontal {
-  // position: relative;
-  // height: 2961px;
   overflow: hidden;
   display: flex;
 }
 
 .scrolled {
   position: relative;
-  // position: sticky;
   top: 10px;
   height: 100vh;
   display: flex;
@@ -18,4 +15,21 @@
 .list {
   height: 100%;
   display: flex;
+}
+
+
+@media screen and (max-width: 992px) {
+  .scrolled {
+    top: 0px;
+    height: 100%;
+  }
+  .list {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .horizontal {
+    height: auto !important;
+  }
 }

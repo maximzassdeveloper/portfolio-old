@@ -1,6 +1,7 @@
 import { FC, } from 'react'
 import { Container, Main } from '@/components/hoc'
 import { Title, CustomLink } from '@/components/ui'
+import { NextWork } from './NextWork/NextWork'
 import { imgPath, isEmpty } from '@/utils/helper'
 import { IWork } from '@/types'
 import WorkTemplate from '@/components/work-templates'
@@ -9,9 +10,12 @@ import s from './single-work.module.scss'
 
 interface SingleWorkProps {
   work: IWork
+  nextWork?: IWork
 }
 
-export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
+export const SingleWork: FC<SingleWorkProps> = ({ work, nextWork }) => {
+
+  console.log(nextWork)
 
   const renderTemplate = () => {
     const Content = WorkTemplate[work.slug]
@@ -68,7 +72,7 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
             {work.links && !isEmpty(work.links) && (
               <div className={s.links}>
                 {Object.entries(work.links).map(([name, url]) =>
-                  <CustomLink key={name + url} href={url} blank showArrow>{name}</CustomLink>
+                  <CustomLink className={s.link} key={name + url} href={url} blank showArrow>{name}</CustomLink>
                 )}
               </div>
             )}
@@ -79,6 +83,8 @@ export const SingleWork: FC<SingleWorkProps> = ({ work }) => {
           </div>
 
         </Container>
+
+        <NextWork work={nextWork} />
       </div>
     </Main>
   )

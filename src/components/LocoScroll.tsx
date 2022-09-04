@@ -15,7 +15,7 @@ interface LocoScrollProps {
 export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
 
   const { setLocoScroll } = useAppContext()
-  const { pathname } = useRouter()
+  const { asPath } = useRouter()
 
   const locoScrollInit = () => {
     const LocomotiveScroll = require('locomotive-scroll').default
@@ -24,7 +24,11 @@ export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
       smooth: true,
       multiplier: .7,
       tablet: {
+        smooth: true,
         breakpoint: 992
+      },
+      smartphone: {
+        smooth: true
       }
     })
 
@@ -56,13 +60,12 @@ export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
     setLocoScroll(locoScroll)
 
     return () => {
-      console.log('out')
       locoScroll.off('scroll', onLocoScroll)
       ScrollTrigger.removeEventListener('refresh', locoUpdate)
       locoScroll.destroy()
       setLocoScroll(null)
     }
-  }, [pathname])
+  }, [asPath])
 
   return <></>
 })

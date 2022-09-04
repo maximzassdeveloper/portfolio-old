@@ -20,18 +20,20 @@ export const Header: FC = () => {
   const animations = useMemo(() => headerAnimations(), [])
   useAnimation(() => {
     animations.logo()
-    animations.navLinks()
-    animations.button()
+    if (window.innerWidth > 768) {
+      animations.navLinks()
+      animations.button()
+    }
     animations.burger()
   })
 
   const burgerHandler = () => {
     if (isMobileMenuOpen) {
       animations.closeMobileMenu()
-      document.documentElement.style.overflowY = 'auto'
+      // document.documentElement.style.overflowY = 'auto'
     } else {
       animations.openMobileMenu()
-      document.documentElement.style.overflowY = 'hidden'
+      // document.documentElement.style.overflowY = 'hidden'
     }
     setIsMobileMenuOpen(prev => !prev)
   }

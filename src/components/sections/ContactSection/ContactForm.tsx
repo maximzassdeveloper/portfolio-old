@@ -57,7 +57,7 @@ export const ContactForm: FC = () => {
         />
 
         <Button className={s.button} htmlType='submit'>Отправить</Button>
-        <p className={s.text}>Нажимая на кнопку, вы даете согласие на обработку <CustomLink route='privacy'>персональных данных</CustomLink></p>
+        <p className={s.text}>Нажимая на кнопку, вы даете согласие на обработку <CustomLink href='/privacy'>персональных данных</CustomLink></p>
 
       </form>
 

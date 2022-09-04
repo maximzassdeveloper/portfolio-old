@@ -5,25 +5,32 @@ import { workService } from '@/services/workService'
 
 interface WorkPageProps {
   work: IWork
+  nextWork?: IWork
 }
 
-const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
+const WorkPage: NextPage<WorkPageProps> = ({ work, nextWork }) => {
   return (
-    <SingleWork work={work} />
+    <SingleWork
+      work={work}
+      nextWork={nextWork}
+    />
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
-    const data = await workService.getWork(`${params?.slug}`)
+    const slug = `${params?.slug}`
+    const work = workService.getWork(slug)
+    const nextWork = workService.getNextWork(slug)
 
-    if (!data) {
+    if (!work) {
       return { notFound: true }
     }
 
     return {
       props: {
-        work: data
+        work,
+        nextWork
       }
     }
   } catch {

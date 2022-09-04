@@ -1,0 +1,41 @@
+.next {
+  padding: 100px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    .image {
+      filter: blur(0px);
+      transform: rotate(5deg);
+    }
+  }
+}
+
+.text {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.image {
+  display: block;
+  margin-left: 50px;
+  width: 440px;
+  min-height: 240px;
+  background-size: cover;
+  filter: blur(10px);
+  transition: .2s;
+}
+

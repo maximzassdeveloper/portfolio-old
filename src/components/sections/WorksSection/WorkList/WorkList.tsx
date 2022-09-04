@@ -14,6 +14,7 @@ export const WorkList: FC = () => {
   }, [])
 
   function horizontalAnimation() {
+    if (window.innerWidth <= 992) return
     const horizontal = document.querySelector(`.${s.horizontal}`) as HTMLElement
     const list = document.querySelector(`.${s.list}`)
 

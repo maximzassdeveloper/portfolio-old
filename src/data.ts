@@ -23,7 +23,8 @@ export const works: IWork[] = [
       "React"
     ],
     links: {
-      'Смотреть сайт': 'https://video-ramp.herokuapp.com/'
+      'Смотреть сайт': 'https://video-ramp.herokuapp.com/',
+      'GitHub': 'https://github.com/maximzassdeveloper/ramp'
     }
   },
   {

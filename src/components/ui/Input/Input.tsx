@@ -5,7 +5,7 @@ import { composeRef } from '@/utils/composeRef'
 import { useCursorHover } from '@/hooks'
 import s from './input.module.scss'
 
-export interface InputProps extends 
+export interface InputProps extends
   Omit<InputHTMLAttributes<HTMLInputElement> & TextareaHTMLAttributes<HTMLTextAreaElement>, 'defaultValue'> {
   value?: string | number
   type?: InputHTMLAttributes<HTMLInputElement>['type']
@@ -20,29 +20,29 @@ export interface InputProps extends
 
 type Elem = HTMLInputElement & HTMLTextAreaElement
 
-export const Input = forwardRef<Elem, InputProps>(( props, ref ) => {
+export const Input = forwardRef<Elem, InputProps>((props, ref) => {
 
-  const { 
-    className, 
+  const {
+    className,
     name,
-    value, 
-    label, 
-    disabled, 
-    type = 'text', 
-    error, 
-    autoComplete = 'off', 
-    textarea, 
-    addonAfter, 
-    addonBefore, 
-    onFocus, 
-    onBlur, 
-    ...rest 
+    value,
+    label,
+    disabled,
+    type = 'text',
+    error,
+    autoComplete = 'off',
+    textarea,
+    addonAfter,
+    addonBefore,
+    onFocus,
+    onBlur,
+    ...rest
   } = props
   const [filled, setFilled] = useState(false)
   const inputRef = useRef<Elem>(null)
   const Tag = textarea ? 'textarea' : 'input'
 
-  useCursorHover(inputRef, { cursorClass: 'hoverInput' })
+  useCursorHover({ el: inputRef.current, cursorClass: 'hoverInput' })
 
   const focusHandler = (e: FocusEvent<Elem>) => {
     setFilled(true)
@@ -56,7 +56,7 @@ export const Input = forwardRef<Elem, InputProps>(( props, ref ) => {
     onBlur?.(e)
   }
 
-  const classes = classNames([s.input], className, { 
+  const classes = classNames([s.input], className, {
     [s.inputError]: error?.message,
     [s.disabled]: disabled,
     [s.filled]: filled
@@ -65,8 +65,8 @@ export const Input = forwardRef<Elem, InputProps>(( props, ref ) => {
   return (
     <div className={classes}>
       {addonBefore}
-      {label && <label className={s.label}>{label}</label>} 
-      <Tag 
+      {label && <label className={s.label}>{label}</label>}
+      <Tag
         ref={composeRef(inputRef, ref)}
         name={name}
         type={type}

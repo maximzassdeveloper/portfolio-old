@@ -109,12 +109,12 @@
   .title {
     font-size: 24px;
   }
-  .image {
-    height: 350px;
-    div {
-      height: 350px;
-    }
-  }
+  // .image {
+  //   height: 350px;
+  //   div {
+  //     height: 350px;
+  //   }
+  // }
 }
 
 @media screen and (max-width: 500px) {
@@ -123,9 +123,9 @@
   }
   .image {
     padding: 0 2%;
-    height: 230px;
-    div {
-      height: 230px;
-    }
+    // height: 230px;
+    // div {
+    //   height: 230px;
+    // }
   }
 }
