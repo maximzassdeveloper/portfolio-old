@@ -71,9 +71,6 @@
   .container {
     flex-direction: column;
   }
-  .info {
-    padding-bottom: 80px;
-  }
   .arrow {
     display: none;
   }
@@ -93,6 +90,11 @@
       }
     }
   }
+  .info {
+    .link {
+      font-size: 22px;
+    }
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -103,7 +105,7 @@
 
 @media screen and (max-width: 400px) {
   .info .link {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 

@@ -24,11 +24,7 @@ export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
       smooth: true,
       multiplier: .7,
       tablet: {
-        smooth: true,
         breakpoint: 992
-      },
-      smartphone: {
-        smooth: true
       }
     })
 

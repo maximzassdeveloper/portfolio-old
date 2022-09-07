@@ -11,7 +11,7 @@ export const Page404: FC = () => {
         <h1 className={s.title}>404</h1>
         <h2 className={s.subtitle}>Страница не найдена ((0(</h2>
 
-        <Button size='small'>
+        <Button className={s.button} size='small'>
           <CustomLink href='/'>
             На главную
           </CustomLink>

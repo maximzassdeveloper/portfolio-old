@@ -5,9 +5,13 @@ import { CustomImage, Title } from '@/components/ui'
 import { imgPath } from '@/utils/helper'
 import s from './about.module.scss'
 
-export const AboutSection: FC = () => {
+interface AboutSectionProps {
+  className?: string
+}
+
+export const AboutSection: FC<AboutSectionProps> = ({ className }) => {
   return (
-    <Section className={s.about} id="about">
+    <Section className={classNames(s.about, className)} id="about">
       <Title splitText data-scroll>
         Обо мне
       </Title>

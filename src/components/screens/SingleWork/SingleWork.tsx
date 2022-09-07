@@ -15,8 +15,6 @@ interface SingleWorkProps {
 
 export const SingleWork: FC<SingleWorkProps> = ({ work, nextWork }) => {
 
-  console.log(nextWork)
-
   const renderTemplate = () => {
     const Content = WorkTemplate[work.slug]
     return Content ? <Content /> : null
@@ -25,14 +23,16 @@ export const SingleWork: FC<SingleWorkProps> = ({ work, nextWork }) => {
   return (
     <Main>
       <div className={s.work} data-scroll-section>
-        <div
-          className={s.bg}
-          style={{ backgroundImage: `url(${imgPath(work.preview)})` }}
-        >
+        <div className={s.bgWrapper}>
           <div
-            className={s.blurBg}
+            className={s.bg}
             style={{ backgroundImage: `url(${imgPath(work.preview)})` }}
-          />
+          >
+            <div
+              className={s.blurBg}
+              style={{ backgroundImage: `url(${imgPath(work.preview)})` }}
+            />
+          </div>
         </div>
 
         <Container>

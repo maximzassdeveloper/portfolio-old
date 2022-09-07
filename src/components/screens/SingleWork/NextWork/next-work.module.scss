@@ -35,7 +35,47 @@
   width: 440px;
   min-height: 240px;
   background-size: cover;
+  background-position: center;
   filter: blur(10px);
   transition: .2s;
 }
+
+@media screen and (max-width: 992px) {
+  .image {
+    filter: blur(0px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .link {
+    width: 100%;
+    flex-direction: column;
+  }
+  .image {
+    width: 100%;
+    max-width: 440px;
+    margin-left: 0;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .next {
+    padding: 50px 0 100px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .image {
+    margin-top: 30px;
+    min-height: 200px;
+  }
+}
+
 

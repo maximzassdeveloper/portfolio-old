@@ -30,10 +30,11 @@ export const Header: FC = () => {
   const burgerHandler = () => {
     if (isMobileMenuOpen) {
       animations.closeMobileMenu()
-      // document.documentElement.style.overflowY = 'auto'
+      document.documentElement.style.overflowY = 'auto'
     } else {
       animations.openMobileMenu()
-      // document.documentElement.style.overflowY = 'hidden'
+      header.current?.classList.remove(s.hidden)
+      document.documentElement.style.overflowY = 'hidden'
     }
     setIsMobileMenuOpen(prev => !prev)
   }
@@ -51,6 +52,7 @@ export const Header: FC = () => {
 
   useEffect(() => {
     locoScroll?.on('scroll', onScroll)
+    header.current?.classList.remove(s.hidden)
 
     return () => {
       locoScroll?.off('scroll', onScroll)

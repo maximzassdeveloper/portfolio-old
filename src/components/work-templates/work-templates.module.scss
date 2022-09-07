@@ -23,3 +23,15 @@
 .right {
   margin-left: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .image {
+    border-radius: 0px;
+  }
+  .row {
+    flex-direction: column;
+    .col {
+      padding: 0;
+    }
+  }
+}
