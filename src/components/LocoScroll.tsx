@@ -53,6 +53,8 @@ export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
     ScrollTrigger.addEventListener('refresh', locoUpdate)
     ScrollTrigger.refresh()
 
+    locoScroll.scrollTo(0, { duration: 0 })
+
     setLocoScroll(locoScroll)
 
     return () => {

@@ -41,6 +41,13 @@
 }
 
 @media screen and (max-width: 992px) {
+  .link {
+    &:hover {
+      .image {
+        transform: rotate(0deg);
+      }
+    }
+  }
   .image {
     filter: blur(0px);
   }
