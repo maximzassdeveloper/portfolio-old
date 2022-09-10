@@ -16,7 +16,7 @@ export const CustomImage: FC<CustomImageProps> = ({
 
   const ref = useRef<HTMLDivElement>(null)
 
-  useAnimation(() => imageAnimation(ref))
+  // useAnimation(() => imageAnimation(ref))
 
   return (
     <div
