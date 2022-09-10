@@ -65,7 +65,7 @@ export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
   }, [asPath])
 
   useEffect(() => {
-    locoScrollFromContext.scrollTo(0, { duration: 0 })
+    locoScrollFromContext && locoScrollFromContext.scrollTo(0, { duration: 0 })
   }, [locoScrollFromContext])
 
   return <></>
