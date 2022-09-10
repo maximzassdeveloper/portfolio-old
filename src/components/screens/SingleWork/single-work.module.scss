@@ -61,7 +61,8 @@
 
 .links {
   .link {
-    display: block;
+    display: flex;
+    align-items: baseline;
     margin-bottom: 15px;
   }
 }

@@ -3,6 +3,7 @@
   overflow: hidden;
   max-width: fit-content;
   opacity: 0;
+  background: #212121;
   transform: translateY(10px);
   transition: .3s cubic-bezier(.215, .61, .355, 1);
   img {
