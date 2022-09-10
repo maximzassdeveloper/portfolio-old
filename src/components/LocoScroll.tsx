@@ -14,7 +14,7 @@ interface LocoScrollProps {
 
 export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
 
-  const { setLocoScroll } = useAppContext()
+  const { setLocoScroll, locoScroll: locoScrollFromContext } = useAppContext()
   const { asPath } = useRouter()
 
   const locoScrollInit = () => {
@@ -53,7 +53,6 @@ export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
     ScrollTrigger.addEventListener('refresh', locoUpdate)
     ScrollTrigger.refresh()
 
-    locoScroll.scrollTo(0, { duration: 0 })
 
     setLocoScroll(locoScroll)
 
@@ -64,6 +63,10 @@ export const LocoScroll: FC<LocoScrollProps> = memo(({ scrollContainer }) => {
       setLocoScroll(null)
     }
   }, [asPath])
+
+  useEffect(() => {
+    locoScrollFromContext.scrollTo(0, { duration: 0 })
+  }, [locoScrollFromContext])
 
   return <></>
 })
