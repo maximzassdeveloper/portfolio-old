@@ -8,7 +8,7 @@ const RampTemplate: FC = () => {
   return <>
     <CustomImage
       className={classNames(s.image, s.center)}
-      src={imgPath('ramp/ramp-single.gif')}
+      src={imgPath('ramp/ramp-single.webp')}
       width={1020}
       height={1020 / 2.1}
       dataScrollSpeed="2"

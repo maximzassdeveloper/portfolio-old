@@ -1,7 +1,6 @@
 import { FC, useRef } from 'react'
-import Image from 'next/image'
 import { IWork } from '@/types'
-import { Title, CustomLink } from '@/components/ui'
+import { Title, CustomLink, CustomImage } from '@/components/ui'
 import { useCursorHover } from '@/hooks'
 import { imgPath } from '@/utils/helper'
 import { useAppContext } from '@/context/AppContext'
@@ -48,9 +47,8 @@ export const Work: FC<WorkProps> = ({ work }) => {
 
           <div className={s.image}>
             <div>
-              <Image
+              <CustomImage
                 src={imgPath(work.preview)}
-                layout='fill'
                 alt={work.name}
               />
             </div>
