@@ -6,12 +6,13 @@ import { imageAnimation } from './imageAnimation'
 import s from './image.module.scss'
 
 interface CustomImageProps extends ImageProps {
+  src: string
   dataScroll?: boolean
   dataScrollSpeed?: string
 }
 
 export const CustomImage: FC<CustomImageProps> = ({
-  className, dataScroll = true, dataScrollSpeed, alt = '', ...rest
+  className, dataScroll = true, dataScrollSpeed, alt = '', src, ...rest
 }) => {
 
   const ref = useRef<HTMLDivElement>(null)
@@ -25,7 +26,8 @@ export const CustomImage: FC<CustomImageProps> = ({
       data-scroll={dataScroll}
       data-scroll-speed={dataScrollSpeed}
     >
-      <Image {...rest} alt={alt} />
+      <img alt={alt} src={src} />
+      {/* <Image {...rest} alt={alt} /> */}
     </div>
   )
 }
