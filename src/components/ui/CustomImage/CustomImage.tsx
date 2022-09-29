@@ -26,7 +26,7 @@ export const CustomImage: FC<CustomImageProps> = ({
       data-scroll={dataScroll}
       data-scroll-speed={dataScrollSpeed}
     >
-      <img alt={alt} src={src} />
+      <img alt={alt} src={src} {...rest} />
       {/* <Image {...rest} alt={alt} /> */}
     </div>
   )
