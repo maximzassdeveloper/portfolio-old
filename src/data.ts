@@ -12,7 +12,7 @@ export const works: IWork[] = [
     slug: "ramp",
     name: "Ramp",
     desc: "Стриминговый сервис фильмов и сериалов.",
-    preview: "ramp/single.jpg",
+    preview: "ramp/single.webp",
     color: "#C63636",
     role: [
       "Дизайн",
@@ -32,7 +32,7 @@ export const works: IWork[] = [
     slug: "gemma-russia",
     name: "Gemma Russia",
     desc: "Интернет-магазин корейской продукции премиум-класса в России.",
-    preview: "gemma/preview.jpg",
+    preview: "gemma/preview.webp",
     color: "#6A4242",
     role: [
       "Дизайн",
@@ -51,7 +51,7 @@ export const works: IWork[] = [
     slug: "business-course",
     name: "Сайт бизнес-курса",
     desc: "Бизнес-курс “Искусство личных продаж МЛМ-предпринимателя 2022”.",
-    preview: "business-course/preview.jpg",
+    preview: "business-course/preview.webp",
     color: "radial-gradient(#FFA53C, #FF3C3C)",
     role: [
       "Дизайн",

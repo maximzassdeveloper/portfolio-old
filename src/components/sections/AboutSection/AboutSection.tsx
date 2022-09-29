@@ -49,7 +49,7 @@ export const AboutSection: FC<AboutSectionProps> = ({ className }) => {
 
         <CustomImage
           className={classNames(s.image, s.image1)}
-          src={imgPath("me1.jpg")}
+          src={imgPath("me1.webp")}
           alt="Mаксим Засс фото 1"
           priority
           height={570}
@@ -59,7 +59,7 @@ export const AboutSection: FC<AboutSectionProps> = ({ className }) => {
 
         <CustomImage
           className={classNames(s.image, s.image2)}
-          src={imgPath("me2.jpg")}
+          src={imgPath("me2.webp")}
           alt="Mаксим Засс фото 2"
           priority
           height={500}

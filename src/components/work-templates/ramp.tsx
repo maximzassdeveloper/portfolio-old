@@ -6,44 +6,44 @@ import s from './work-templates.module.scss'
 
 const RampTemplate: FC = () => {
   return <>
-    <CustomImage 
+    <CustomImage
       className={classNames(s.image, s.center)}
-      src={imgPath('ramp/ramp-single.gif')} 
+      src={imgPath('ramp/ramp-single.gif')}
       width={1020}
-      height={1020/2.1}
-      dataScrollSpeed="2" 
+      height={1020 / 2.1}
+      dataScrollSpeed="2"
     />
 
-    <CustomImage 
+    <CustomImage
       className={classNames(s.image, s.left)}
-      src={imgPath('ramp/single.jpg')} 
+      src={imgPath('ramp/single.webp')}
       width={1020}
-      height={1020/2.1}
-      dataScrollSpeed="1" 
+      height={1020 / 2.1}
+      dataScrollSpeed="1"
     />
 
-    <CustomImage 
+    <CustomImage
       className={classNames(s.image, s.right)}
-      src={imgPath('ramp/single-episodes.jpg')} 
+      src={imgPath('ramp/single-episodes.webp')}
       width={1020}
-      height={1020/2.1}
-      dataScrollSpeed="2" 
+      height={1020 / 2.1}
+      dataScrollSpeed="2"
     />
 
-    <CustomImage 
+    <CustomImage
       className={classNames(s.image, s.left)}
-      src={imgPath('ramp/single-details.jpg')} 
+      src={imgPath('ramp/single-details.webp')}
       width={1020}
-      height={1020/2.1}
-      dataScrollSpeed="2" 
+      height={1020 / 2.1}
+      dataScrollSpeed="2"
     />
 
-    <CustomImage 
+    <CustomImage
       className={classNames(s.image, s.center)}
-      src={imgPath('ramp/player.jpg')} 
+      src={imgPath('ramp/player.webp')}
       width={1020}
-      height={1020/2.1} 
-      dataScrollSpeed="1" 
+      height={1020 / 2.1}
+      dataScrollSpeed="1"
     />
   </>
 }

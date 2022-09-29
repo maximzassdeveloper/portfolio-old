@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react'
-import Image, { ImageProps } from 'next/image'
+import { ImageProps } from 'next/image'
 import classNames from 'classnames'
 import { useAnimation } from '@/hooks'
 import { imageAnimation } from './imageAnimation'
@@ -27,7 +27,10 @@ export const CustomImage: FC<CustomImageProps> = ({
       data-scroll-speed={dataScrollSpeed}
     >
       <img alt={alt} src={src} {...rest} />
-      {/* <Image {...rest} alt={alt} /> */}
+      {/* 
+        Not Next Image, because bad work with locoScroll
+        <Image {...rest} alt={alt} /> 
+      */}
     </div>
   )
 }
